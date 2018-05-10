@@ -4,13 +4,14 @@
 
 * [JavaScript]()
 * [Session Cookies]()
-* [Client web]()
-* [Serveur web]()
+* [Web Client]()
+* [Web Server]()
 * [XMLHttpRequest]()
 * [WAF]()
 * [Proxy]()
 * [SOP]()
 * [HTML]()
+* [DOM]()
 
 ## Nomenclature 
 ### XSS stands for:
