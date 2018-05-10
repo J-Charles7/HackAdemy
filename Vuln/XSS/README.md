@@ -45,7 +45,7 @@ Server Xss occurs when untrusted data from user is replied with server gnerated 
 
 ### Client XSS
 ----
-Client XSS occurs when untrusted data is used to update the dom with an unsafe call of client side script. 
+Client XSS occurs when `untrusted data` is used to update the dom with an unsafe call of client side script. 
 
 ## How to test for XSS 
 + Graybox test is the best way to test for XSS, each http data input could possibly be a XSS attack vector if the input is not escapped. 
