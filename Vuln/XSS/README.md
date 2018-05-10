@@ -14,13 +14,13 @@
 
 
 
-## Nommenclature 
-### Nom commun 
+## Nomenclature 
+### XSS stands for:
 Cross Site Scripting
-### Exploitabilité 
-Facile 
+### Exploitability
+Easy 
 ### Impact : 
-defiguration, vol de cookie, lecture de fichiers, DDoS 
+Several: disfigurements, theft of cookie, unauthorized files access, DoS 
 # Cross Site Scripting 
 -----
 ## Overview 
