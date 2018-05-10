@@ -3,7 +3,7 @@
 ## Champ lexical
 
 * [JavaScript]()
-* [Cookie de session]()
+* [Session Cookies]()
 * [Client web]()
 * [Serveur web]()
 * [XMLHttpRequest]()
@@ -12,13 +12,11 @@
 * [SOP]()
 * [HTML]()
 
-
-
 ## Nomenclature 
 ### XSS stands for:
 Cross Site Scripting
 ### Exploitability
-Easy/Medium/difficult according to the context
+Easy / Medium / Difficult according to the context
 ### Impact : 
 Several: disfigurements, theft of cookie, unauthorized files access, DoS 
 # Cross Site Scripting 
