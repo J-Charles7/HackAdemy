@@ -36,8 +36,8 @@ It is classified among injection attacks.  Early on it was categorized as three 
 
 * This classification was quickly deprecated. To clarify it, the research community proposed two new terms to help organize the types of XSS that can occur :
 
->> + Server XSS
->> + Client XSS
+ * Server XSS
+ * Client XSS
 
 ### Server XSS 
 ---
@@ -48,9 +48,9 @@ Server Xss occurs when untrusted data from user is replied with server gnerated 
 Client XSS occurs when `untrusted data` is used to update the dom with an unsafe call of client side script. 
 
 ## How to test for XSS 
-+ Graybox test is the best way to test for XSS, each http data input could possibly be a XSS attack vector if the input is not escapped. 
+* Graybox test is the best way to test for XSS, each http data input could possibly be a XSS attack vector if the input is not escapped. 
 
-+ The best way to perform black blackbox test in server XSS is to use proxy, dirbust the website detect all submitted data to the server and injects some HTML characters and analyse server response. 
+* The best way to perform black blackbox test in server XSS is to use proxy, dirbust the website detect all submitted data to the server and injects some HTML characters and analyse server response. 
 
 
  
