@@ -35,7 +35,6 @@ It is classified among injection attacks.  Early on it was categorized as three 
  * __DOM based XSS__ : when the user input isn't send to the server but is used to automatically update it's DOM.
 
 * This classification was quickly deprecated. To clarify it, the research community proposed two new terms to help organize the types of XSS that can occur :
-
  * Server XSS
  * Client XSS
 
