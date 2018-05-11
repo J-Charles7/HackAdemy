@@ -57,6 +57,7 @@ This code is vulnerable.
 </code>  
 </pre>
 
+<h1>
 
 * The best way to perform `black blackbox` test in server XSS is to use a proxy, dirbust the website detect all submitted data to the server and inject some HTML characters and analyse the server responses.
 From all the website submits, test with html char, and look the render in browser. If it is not escape(the result is not HTML special character), probably the website is xss vulnerable. 
