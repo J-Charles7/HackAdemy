@@ -56,7 +56,7 @@ For example this code is vulnerable.
 If the value of name is ```</h1><script>alert('xss');</script><h1>``` the browser will get the following answer from the server 
 ```
     <h1>!</h1>
-    <script>alert('xss')</script>
+    <script>alert('xss');</script>
     <h1></h1>
 ```	
 
