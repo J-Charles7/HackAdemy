@@ -104,7 +104,7 @@ myFunction(){
 	document.body.appendChild(userInputEscapped); 
 	}
   ```
-In this example the quote char is replaced with ' '. An attacker could attack this implementation by using ```String.fromCharCode(34,120,115,115,34);``` to get alert("XSS").
+In this example the quote char is replaced with ' '. An attacker could attack this implementation by using ```String.fromCharCode(35,120,115,115,34);``` to get ```alert("XSS")```.
 
 
 ## Counter Measures
