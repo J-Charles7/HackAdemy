@@ -98,7 +98,7 @@ If the user sends ```'); alert('xss'); document.getElement('``` the code will be
 This function appends to the document body the user input. It replaces the user input containing <script> by " ". 
 For example, if a user inputs ```<script>alert("test");</script>``` the result will be ```alert("test");``` and then will not be executed.
 This kind of escapping is very unuseful. If the attacker choose ```<SCRIPT>alert('test');</SCRIPT> the replace method is case sensitive, so the js script will be executed. 
- 
+``` 
 myFunction(){
 	userInputEscapped = userInput.replace('"', ' '); 
 	document.body.appendChild(userInputEscapped); 
