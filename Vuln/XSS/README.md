@@ -46,13 +46,21 @@ Server XSS occurs when untrusted data from user is replied with server generated
 Client XSS occurs when `untrusted data` is used to update the `DOM` with an unsafe call of **client-side script**. 
 
 ## How to test for XSS 
-* `Graybox` test is the best way to test for XSS. Each HTTP data input could possibly be an XSS attack vector if the input is not escapped. 
-This code is vulnerable.
+* `Graybox` test is the best way to test for XSS. Each HTTP data input and printed after could possibly be an XSS attack vector if the input is not escapped. 
+For example this code is vulnerable.
 ```
     <?php
     echo 'Hello <h1>' .$_GET["name"]. '!</h1>';
     ?>
 ```
+If the name value is ```</h1><script>alert('xss');</script><h1>``` the browser will get the following answer from the server :
+```
+	<h1></h1>
+	<script>alert('xss')</script>
+	<h1></h1>
+```	
+
+
 * The best way to perform `black blackbox` XSS test in server is to use a `proxy`, `dirbust` the website and `analyze` all submitted data to the server and inject some HTML characters and analyse the server responses.
 From all the website submits, test with HTML chars (html entities), and look the render in browser. If it is not well escaped (the result is not HTML special character), probably the website is XSS vulnerable. 
 
