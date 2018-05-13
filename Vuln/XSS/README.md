@@ -78,6 +78,7 @@ This code will send the cookie of the user who visit the website containing this
 
 ### Example 2 : XSS with weak js function 
 
+1. 
 ```	
     myFunction(){
 	myImg.src = document.getElementById('imgId').value; 
@@ -86,6 +87,5 @@ This code will send the cookie of the user who visit the website containing this
 
 ```
 If the user sends ```'); alert('xss'); document.getElement('``` the code will become ```myImg.src = document.getElementById(''); alert('xss'); document.getElementById('imgId').value;```
-
 
 
