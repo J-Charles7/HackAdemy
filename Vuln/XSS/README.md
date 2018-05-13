@@ -53,7 +53,7 @@ For example this code is vulnerable.
     echo 'Hello <h1>' .$_GET["name"]. '!</h1>';
     ?>
 ```
-If the name value is ```</h1><script>alert('xss');</script><h1>``` the browser will get the following answer from the server :
+If the value of name is ```</h1><script>alert('xss');</script><h1>``` the browser will get the following answer from the server :
 ```
 	<h1></h1>
 	<script>alert('xss')</script>
