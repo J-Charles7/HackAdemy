@@ -19,7 +19,7 @@ Cross Site Scripting
 ### Exploitability
 Easy / Medium / Difficult according to the context
 ### Impact : 
-Several: `disfigurements, theft of cookie, unauthorized files access, DoS` 
+Several: `disfigurements, theft of cookie, unauthorized files access, DoS, control victim browser, ` 
 # Cross Site Scripting 
 -----
 ## Overview 
@@ -61,8 +61,15 @@ If the value of name is ```</h1><script>alert('xss');</script><h1>``` the browse
 ```	
 
 
-* The best way to perform `black blackbox` XSS test in server is to use a `proxy`, `dirbust` the website and `analyze` all submitted data to the server and inject some HTML characters and analyse the server responses.
-From all the website submits, test with HTML chars (html entities), and look the render in browser. If it is not well escaped (the result is not HTML special character), probably the website is XSS vulnerable. 
+* The best way to perform `black blackbox` XSS test in server is to use a `proxy`, `dirbust` the website and `analyze` all submitted data to the server and inject some HTML characters and analyse the server responses. Submit to check :
+  * HTTP headers
+  * URL parameters, query string
+  * Request body, form data
+  * Cookies, API storage 
+
+From all the website submits listed, test with HTML chars (html entities), and look the render in browser. If it is not well escaped (the result is not HTML special character), probably the website is XSS vulnerable.
+
+ 
 ---
 ## Examples     
 ### Example 1 : cookie theft 
@@ -95,9 +102,18 @@ If the user sends ```'); alert('xss'); document.getElement('``` the code will be
 	}
 
 ```
-This function appends to thr document body the user input. It replaces the user input containing <script> by " ". 
+This function appends to the document body the user input. It replaces the user input containing <script> by " ". 
 For example, if a user inputs ```<script>alert("test");</script>``` the result will be ```alert("test");``` and then will not be executed.
-This kind of escapping is very unuseful. If the attacker choose ```<SCRIPT>alert('test');</SCRIPT> the replace method is case sensitive, so the js script will be executed. 
- 
+This kind of escapping is very unuseful. If the attacker choose ```<SCRIPT>alert('test');</SCRIPT>``` the replace method is case sensitive, so the js script will be executed. 
+``` 
+myFunction(){
+	userInputEscapped = userInput.replace('"', ' '); 
+	document.body.appendChild(userInputEscapped); 
+	}
+  ```
+In this example the quote char is replaced with ' '. An attacker could attack this implementation by using ```String.fromCharCode(35,120,115,115,34);``` to get ```alert("XSS")```.
 
-  
+
+## Counter Measures
+Rule #1: Never trust client 
+ 
