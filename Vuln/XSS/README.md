@@ -19,7 +19,7 @@ Cross Site Scripting
 ### Exploitability
 Easy / Medium / Difficult according to the context
 ### Impact : 
-Several: `disfigurements, theft of cookie, unauthorized files access, DoS` 
+Several: `disfigurements, theft of cookie, unauthorized files access, DoS, control victim browser, ` 
 # Cross Site Scripting 
 -----
 ## Overview 
@@ -61,8 +61,15 @@ If the value of name is ```</h1><script>alert('xss');</script><h1>``` the browse
 ```	
 
 
-* The best way to perform `black blackbox` XSS test in server is to use a `proxy`, `dirbust` the website and `analyze` all submitted data to the server and inject some HTML characters and analyse the server responses.
-From all the website submits, test with HTML chars (html entities), and look the render in browser. If it is not well escaped (the result is not HTML special character), probably the website is XSS vulnerable. 
+* The best way to perform `black blackbox` XSS test in server is to use a `proxy`, `dirbust` the website and `analyze` all submitted data to the server and inject some HTML characters and analyse the server responses. Submit to check :
+** HTTP headers
+** URL parameters, query string
+** Request body, form data
+** cookies, API storage 
+
+From all the website submits listed, test with HTML chars (html entities), and look the render in browser. If it is not well escaped (the result is not HTML special character), probably the website is XSS vulnerable.
+
+ 
 ---
 ## Examples     
 ### Example 1 : cookie theft 
@@ -108,3 +115,5 @@ In this example the quote char is replaced with ' '. An attacker could attack th
 
 
 ## Counter Measures
+The ultimate XSS counter measurement is to escape html espcial character. 
+ 
