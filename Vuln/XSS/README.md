@@ -115,5 +115,5 @@ In this example the quote char is replaced with ' '. An attacker could attack th
 
 
 ## Counter Measures
-The ultimate XSS counter measurement is to escape html espcial character. 
+Rule #1: Never trust client 
  
