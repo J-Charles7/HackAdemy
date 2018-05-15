@@ -1,4 +1,4 @@
-# XSS (c'est du balaise!! ^_^ Lol)
+# XSS 
 
 ## Lexic
 
@@ -117,6 +117,7 @@ In this example the quote char is replaced with ' '. An attacker could attack th
 ## Counter Measures
 * **Rule #1**: `NEVER` trust client. Always perform `input validation` at every single posted by the user to the server. This includes `escaping`, `filtering` and checking everything related to data submt.
 * **Rule #2**: Always update `plugins`, `modules`, `core` and all plugged packaged being used in web systems. Indeed, this contributes in limiting XSS flaws risks. This requires mastering and knowing each item used in the system/web site.
-* **Rule #3**: `Disable`/`remove` unseful features/modules cause `more one's web site embeds packages, higher is the risk of XSS vulnerability presence`.
-* **Rule #4**: 
+* **Rule #3**: `Disable`/`remove` unseful features/modules cause `more one's web site embeds packages, higher is the risk of XSS vulnerability presence` mostly in CMSs.
+* **Rule #4**: Think of using a [WAF](items/waf.md)
+* **Rule #5**: Implement [SOP](items/sop.md) policy `properly`.
  
