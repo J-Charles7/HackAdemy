@@ -23,7 +23,7 @@ Several: `disfigurements, theft of cookie, unauthorized files access, DoS, contr
 # Cross Site Scripting 
 -----
 ## Overview 
-The XSS attack is an attack realized when data submit from end user is `interpretted by a browser`.
+The XSS attack is an attack realized when data submit from end user is `interpretted by a browser` through [Javascript](items/javascript.md) language.
 It is classified among `injection attacks`.  Early on, it was categorized as **three** kinds, `stored`, `DOM based` and `reflected`. 
 * These three types were defined as follows :
 
@@ -113,11 +113,21 @@ myFunction(){
   ```
 In this example the quote char is replaced with ' '. An attacker could attack this implementation by using ```String.fromCharCode(35,120,115,115,34);``` to get ```alert("XSS")```.
 
-
+### Obfuscation
+`Obfuscation` is the deliberate act of creating source or machine code that is difficult for humans to understand. Like obfuscation in natural language, it may use needlessly roundabout expressions to compose statements. Programmers may deliberately obfuscate code to conceal its purpose (security through obscurity) or its logic or implicit values embedded in it, primarily, in order to prevent tampering, deter reverse engineering, or even as a puzzle or recreational challenge for someone reading the source code. This can be done manually or by using an automated tool, the latter being the preferred technique in industry.
+#### Example:
+Let's assume the following script:
+```
+alert("Hello, JavaScript" );
+```
+After an obfuscation with [JJencode](http://utf-8.jp/public/jjencode.html); it looks like:
+```
+$=~[];$={___:++$,$$$$:(![]+"")[$],__$:++$,$_$_:(![]+"")[$],_$_:++$,$_$$:({}+"")[$],$$_$:($[$]+"")[$],_$$:++$,$$$_:(!""+"")[$],$__:++$,$_$:++$,$$__:({}+"")[$],$$_:++$,$$$:++$,$___:++$,$__$:++$};$.$_=($.$_=$+"")[$.$_$]+($._$=$.$_[$.__$])+($.$$=($.$+"")[$.__$])+((!$)+"")[$._$$]+($.__=$.$_[$.$$_])+($.$=(!""+"")[$.__$])+($._=(!""+"")[$._$_])+$.$_[$.$_$]+$.__+$._$+$.$;$.$$=$.$+(!""+"")[$._$$]+$.__+$._+$.$+$.$$;$.$=($.___)[$.$_][$.$_];$.$($.$($.$$+"\""+$.$_$_+(![]+"")[$._$_]+$.$$$_+"\\"+$.__$+$.$$_+$._$_+$.__+"(\\\"\\"+$.__$+$.__$+$.___+$.$$$_+(![]+"")[$._$_]+(![]+"")[$._$_]+$._$+",\\"+$.$__+$.___+"\\"+$.__$+$.__$+$._$_+$.$_$_+"\\"+$.__$+$.$$_+$.$$_+$.$_$_+"\\"+$.__$+$._$_+$._$$+$.$$__+"\\"+$.__$+$.$$_+$._$_+"\\"+$.__$+$.$_$+$.__$+"\\"+$.__$+$.$$_+$.___+$.__+"\\\"\\"+$.$__+$.___+")"+"\"")())();
+```
 ## Counter Measures
 * **Rule #1**: `NEVER` trust client. Always perform `input validation` at every single posted by the user to the server. This includes `escaping`, `filtering` and checking everything related to data submt.
 * **Rule #2**: Always update `plugins`, `modules`, `core` and all plugged packaged being used in web systems. Indeed, this contributes in limiting XSS flaws risks. This requires mastering and knowing each item used in the system/web site.
 * **Rule #3**: `Disable`/`remove` unseful features/modules cause `more one's web site embeds packages, higher is the risk of XSS vulnerability presence` mostly in CMSs.
-* **Rule #4**: Think of using a [WAF](items/waf.md)
+* **Rule #4**: Think of using a [WAF](items/waf.md) and think of `deofuscation` methods.
 * **Rule #5**: Implement [SOP](items/sop.md) policy `properly`.
  
