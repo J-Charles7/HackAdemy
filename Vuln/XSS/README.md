@@ -28,13 +28,16 @@ It is classified among `injection attacks`.  Early on, it was categorized as **t
 * These three types were defined as follows :
 
   * __Stored XSS__: generally occurs when server stocks submitted data from one user and then this data could be seen by others users : in a message log, in user log, in user credentials, in message form, in user cv.
-  `Client -> Server -> Users of the site (possibily including attacker)`
+ 
+ `Client -> Server -> Users of the site (possibily including attacker)`
 
   * __Reflected XSS__ : when the user supplied data is automatically replied to the same user without escapping from the server.
-  `Client -> Server -> Client`
+ 
+ `Client -> Server -> Client`
 
   * __DOM based XSS__ : when the user input is not sent to the server but is used to automatically update its `DOM`.
-  `Client -> Client`
+ 
+ `Client -> Client`
 
 * This classification was quickly deprecated. To clarify it, the research community proposed two new terms to help organize the types of XSS that can occur :
   * **Server XSS**
