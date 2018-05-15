@@ -3,7 +3,7 @@
 ## Champ lexical
 
 * [JavaScript](items/javascript.md)
-* [Session Cookies](items/cookies.md)
+* [Cookies](items/cookies.md)
 * [Web Client](items/wed_client.md)
 * [Web Server](items/web_server.md)
 * [XMLHttpRequest](items/xhr.md)
