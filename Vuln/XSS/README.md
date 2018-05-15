@@ -2,16 +2,16 @@
 
 ## Champ lexical
 
-* [JavaScript]()
-* [Session Cookies]()
-* [Web Client]()
-* [Web Server]()
-* [XMLHttpRequest]()
-* [WAF]()
-* [Proxy]()
-* [SOP]()
-* [HTML]()
-* [DOM]()
+* [JavaScript](items/javascript.md)
+* [Session Cookies](items/cookies.md)
+* [Web Client](items/wed_client.md)
+* [Web Server](items/web_server.md)
+* [XMLHttpRequest](items/xhr.md)
+* [WAF](items/waf.md)
+* [Proxy](items/proxy.md)
+* [SOP](items/sop.md)
+* [HTML](items/html.md)
+* [DOM](items/dom.md)
 
 ## Nomenclature 
 ### XSS stands for:
