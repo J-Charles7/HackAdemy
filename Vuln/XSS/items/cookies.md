@@ -1,4 +1,4 @@
-# (Session) cookies
+# Cookies
 ## Description
 An `HTTP cookie` (also called `web cookie, Internet cookie, browser cookie, or simply cookie`) is a small piece of data 
 sent from a website and stored on the user's computer by the user's web browser while the user is browsing. Cookies 
