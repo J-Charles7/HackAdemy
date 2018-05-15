@@ -1,6 +1,6 @@
 # XSS (c'est du balaise!! ^_^ Lol)
 
-## Champ lexical
+## Lexic
 
 * [JavaScript](items/javascript.md)
 * [Cookies](items/cookies.md)
