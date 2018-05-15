@@ -4,7 +4,7 @@
 
 * [JavaScript](items/javascript.md)
 * [Cookies](items/cookies.md)
-* [Web Client](items/wed_client.md)
+* [Web Client](items/web_client.md)
 * [Web Server](items/web_server.md)
 * [XMLHttpRequest](items/xhr.md)
 * [WAF](items/waf.md)
