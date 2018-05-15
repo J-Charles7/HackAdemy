@@ -23,7 +23,7 @@ Several: `disfigurements, theft of cookie, unauthorized files access, DoS, contr
 # Cross Site Scripting 
 -----
 ## Overview 
-The XSS attack is an attack realized when data submit from end user is `interpretted by a browser` through [Javascript](items/javascript.md) language.
+The XSS attack is an attack realized when data submit from end user is `interpretted by a browser` through [Javascript](items/javascript.md) language mostly.
 It is classified among `injection attacks`.  Early on, it was categorized as **three** kinds, `stored`, `DOM based` and `reflected`. 
 * These three types were defined as follows :
 
