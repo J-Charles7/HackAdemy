@@ -137,6 +137,12 @@ $=~[];$={___:++$,$$$$:(![]+"")[$],__$:++$,$_$_:(![]+"")[$],_$_:++$,$_$$:({}+"")[
 \\"+$.__$+$._$_+$._$$+$.$$__+"\\"+$.__$+$.$$_+$._$_+"\\"+$.__$+$.$_$+$.__$+"\\"+$.__$+$.$$_+$.___+$.__+"
 \\\"\\"+$.$__+$.___+")"+"\"")())();
 ```
+Note : Note that the **ENCODED** above does not appear in encoded files, rather it is the location where the encoded 
+host code would appear. Also note that this algorithm does not work in direct mode (that is, putting it in a .js won’t 
+work) because it requires a feature that was introduced in HTML 4.0. As a result, it must appear in an HTML page, and that HTML page must declare its need for HTML 4.0 or later using a declaration like this:
+```<!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.0//EN”>```
+The **HTML 4.0** 4.0’ string can be replaced by later versions, such as ‘HTML 4.1’ or ‘XHTML 1.0’, etc.
+
 ## Counter Measures
 * **Rule #1**: **NEVER** trust client. Always perform `input validation` at every single posted by the user to the server. This includes `escaping`, `filtering` and checking everything related to data submit.
 * **Rule #2**: Always update `plugins`, `modules`, `core` and all plugged packaged being used in web systems. Indeed, this contributes in limiting XSS flaws risks. This requires mastering and knowing each item used in the system/web site.
@@ -144,3 +150,9 @@ $=~[];$={___:++$,$$$$:(![]+"")[$],__$:++$,$_$_:(![]+"")[$],_$_:++$,$_$$:({}+"")[
 * **Rule #4**: Think of using a [WAF](items/waf.md) and think of `deofuscation` methods.
 * **Rule #5**: Implement [SOP](items/sop.md) policy `properly`.
  
+ Now let's pick up some server side programming languages for more `accurate ` counter measures implementations.
+ ### PHP
+ ### ASP.Net
+ ### C#
+ ### Java
+ ### Node.JS
