@@ -10,6 +10,6 @@ This is a list of a few server programming languages:
 * Python
 * Java
 * Ruby
-* NodeJS
+* Node.JS
 ## Learn more
 [Here](https://en.wikipedia.org/wiki/Web_server) is a relevant link.
