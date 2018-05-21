@@ -170,7 +170,7 @@ The **HTML 4.0** 4.0’ string can be replaced by later versions, such as ‘HTM
  -----
  
   #### Incorrect
-  In this part, we will be dealing the Python [Flask library](items/flask.py).
+  In this part, we will be dealing the Python [Flask library](items/flask.md).
 The following is a contrived example of how a **reflected XSS** exploit may occur. If an attacker were to submit a request to `http://example.com/?name=<script>alert(1)</script>` then any user viewing that url would have the javascript executed within the context of their browser.
 ```
 # flask example
