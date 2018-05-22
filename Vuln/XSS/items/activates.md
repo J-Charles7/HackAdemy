@@ -1,5 +1,5 @@
 # Cross-site scripting (XSS) defense (Python recipe)
-Note : The content of this page is taken from Activestate:
+Note : The content of this page is taken from **Activestate**:
 - Site : http://code.activestate.com/recipes/496942-cross-site-scripting-xss-defense/
 - Github : https://github.com/ActiveState/code
 
