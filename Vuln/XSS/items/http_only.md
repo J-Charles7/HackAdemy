@@ -91,11 +91,62 @@ Some web application servers, that implement `JEE 5`, and servlet containers tha
 
 ### Using .NET to Set HttpOnly
 -----
-By default, `.NET 2.0` sets the HttpOnly attribute for
-** Session ID
-** Forms Authentication cookie
+* By default, `.NET 2.0` sets the HttpOnly attribute for
+  * Session ID
+  * Forms Authentication cookie
 In .NET 2.0, HttpOnly can also be set via the HttpCookie object for all custom application cookies.
+* Via `web.config` in the `system.web/httpCookies` element
+```
+<httpCookies httpOnlyCookies="true" …> 
+```
+* Or `programmatically`:
+C# Code: 
+```
+HttpCookie myCookie = new HttpCookie("myCookie");
+myCookie.HttpOnly = true;
+Response.AppendCookie(myCookie);
+```
+VB.NET Code: 
+```
+Dim myCookie As HttpCookie = new HttpCookie("myCookie")
+myCookie.HttpOnly = True
+Response.AppendCookie(myCookie)
+```
+* However, in `.NET 1.1`, you would have to do this *manually*, e.g.
+```
+Response.Cookies[cookie].Path += ";HttpOnly";
+```
+### Using Python (cherryPy) to Set HttpOnly
+-----
+Python Code (**cherryPy**):
+To use HTTP-Only cookies with **Cherrypy** sessions just add the following line in your configuration file:
+```
+tools.sessions.httponly = True
+```
+If you use SLL you can also make your cookies secure (encrypted) to avoid **"man-in-the-middle"** cookies reading with:
+```
+tools.sessions.secure = True
+```
+###  Using PHP to set HttpOnly 
+-----
+**PHP** supports setting the HttpOnly flag since version 5.2.0 (November 2006).
 
+For session cookies managed by PHP, the flag is set either permanently in `php.ini` PHP manual on HttpOnly through the parameter: 
+```
+session.cookie_httponly = True
+```
+or in and during a script via the function: 
+```
+void session_set_cookie_params  ( int $lifetime  [, string $path  [, string $domain  
+                                  [, bool $secure= false  [, bool $httponly= false  ]]]] )
+
+```
+
+For application cookies last parameter in `setcookie()` sets HttpOnly flag: 
+```
+bool setcookie  ( string $name  [, string $value  [, int $expire= 0  [, string $path  
+                 [, string $domain  [, bool $secure= false  [, bool $httponly= false  ]]]]]] )
+```
 
 ### WAFs - Web Application Firewalls
 -----
