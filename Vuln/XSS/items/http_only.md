@@ -101,7 +101,7 @@ In .NET 2.0, HttpOnly can also be set via the HttpCookie object for all custom a
 -----
 
 If code changes are infeasible, web application firewalls can be used to add HttpOnly to session cookies:
-* Mod_security - using SecRule and Header [directives](http://blog.modsecurity.org/2008/12/fixing-both-missing-httponly-and-secure-cookie-flags.html)
+* **Mod_security** - using SecRule and Header [directives](http://blog.modsecurity.org/2008/12/fixing-both-missing-httponly-and-secure-cookie-flags.html)
 * [ESAPI WAF](http://code.google.com/p/owasp-esapi-java/downloads/list) using add-http-only-flag [directive](http://www.slideshare.net/llamakong/owasp-esapi-waf-appsec-dc-2009)
 
 
