@@ -101,7 +101,7 @@ This code will send the cookie of the user who visit the website containing this
 If the user sends ```'); alert('xss'); document.getElement('``` the code will become ```myImg.src = document.getElementById(''); alert('xss'); document.getElementById('imgId').value;```
 
 ### Example 3 : Bad escapping
-```
+```Javascript
    myFunction(){
 	userInputEscapped = userInput.replace('<script>', ' ');
 	document.appendChild(userInputEscapped);
@@ -111,23 +111,24 @@ If the user sends ```'); alert('xss'); document.getElement('``` the code will be
 This function appends to the document body the user input. It replaces the user input containing <script> by " ". 
 For example, if a user inputs ```<script>alert("test");</script>``` the result will be ```alert("test");``` and then will not be executed.
 This kind of escapping is very unuseful. If the attacker choose ```<SCRIPT>alert('test');</SCRIPT>``` the replace method is case sensitive, so the js script will be executed. 
-``` 
+```Javascript
 myFunction(){
 	userInputEscapped = userInput.replace('"', ' '); 
 	document.body.appendChild(userInputEscapped); 
 	}
-  ```
+```
+	
 In this example the quote char is replaced with ' '. An attacker could attack this implementation by using ```String.fromCharCode(35,120,115,115,34);``` to get ```alert("XSS")```.
 
 ### Obfuscation
 `Obfuscation` is the deliberate act of creating source or machine code that is difficult for humans to understand. Like obfuscation in natural language, it may use needlessly roundabout expressions to compose statements. Programmers may deliberately obfuscate code to conceal its purpose (security through obscurity) or its logic or implicit values embedded in it, primarily, in order to prevent tampering, deter reverse engineering, or even as a puzzle or recreational challenge for someone reading the source code. This can be done manually or by using an automated tool, the latter being the preferred technique in industry.
 #### Example:
 Let's assume the following script:
-```
+```JavaScript
 alert("Hello, JavaScript" );
 ```
 After an obfuscation with [JJencode](http://utf-8.jp/public/jjencode.html); it looks like:
-```
+```JavaScript
 $=~[];$={___:++$,$$$$:(![]+"")[$],__$:++$,$_$_:(![]+"")[$],_$_:++$,$_$$:({}+"")[$],$$_$:($[$]+"")[$],_$$:++$,$$$_:
 (!""+"")[$],$__:++$,$_$:++$,$$__:({}+"")[$],$$_:++$,$$$:++$,$___:++$,$__$:++$};$.$_=($.$_=$+"")[$.$_$]+
 ($._$=$.$_[$.__$])+($.$$=($.$+"")[$.__$])+((!$)+"")[$._$$]+($.__=$.$_[$.$$_])+($.$=(!""+"")[$.__$])+($._=(!""+"")
@@ -254,8 +255,6 @@ Assert.That(sanitized, Is.EqualTo(@"<div style=""background-color: test"">"
 ```C#
 using System;
 using Ganss.XSS;
-
-
 					
 public class Program
 {
@@ -271,7 +270,7 @@ var sanitized = sanitizer.Sanitize(html, "http://www.example.com");
 }
 ```
 This is the resulting output:
-```
+```HTML
 <div style="background-color: test">Test<img src="http://www.example.com/test.gif" style="margin: 10px"></div>
 ```
 
@@ -293,7 +292,7 @@ There's an [online demo](http://xss.ganss.org/), plus there's also a [.NET Fiddl
   #### Incorrect
   In this part, we will be dealing the Python [Flask library](items/flask.md).
 The following is a contrived example of how a **reflected XSS** exploit may occur. If an attacker were to submit a request to `http://example.com/?name=<script>alert(1)</script>` then any user viewing that url would have the javascript executed within the context of their browser.
-```
+```Python
 # flask example
 @app.route("/")
 def hello():
@@ -302,7 +301,7 @@ def hello():
 ```
   #### Correct
 The correct way to prevent XSS attacks is to validate user input and ensure that data rendered by templates is escaped. Using templates in the way they are intended is preferable:
-```
+```Python
 # flask example
 @app.route("/")
 def hello():
@@ -314,7 +313,7 @@ def hello():
 ```
 
 Any HTML content that is generated directly within a request handler should use the appropriate escaping function:
-```
+```Python
 from flask import escape
 @app.route("/")
 def hello():
@@ -332,21 +331,21 @@ def hello():
 * **Negative validation (blacklist)** - Block a specified list of dangerous values
 
 In cases where `positive validation` is used, it should also be coupled with additional sanitization. For example, when allowing certain HTML tags, certain attributes of those tags should be removed, such as event handlers. e.g.:
-```
+```HTML
 <img src='someimage.jpg' onload='do_evil()'/>
 ```
 Again, the preferable approach is to only `allow known safe attributes`, and sanitize the content of those attribute values. If the content is not sanitized, the following vulnerable code could occur:
-```
+```Javascript
 function add_image(link) {
   document.write('<img src="' + link + '"'></img>'');
 }
 ```
 If the preceding JavaScript function is called with the link parameter containing the following value, the function can be exploited to execute arbitrary code:
-```
+```Javascript
 x" onerror="do_evil()
 ```
 A more secure implementation of the above would be:
-```
+```Javascript
 function add_image(link) {
   clean = link.replace(/"/g, '&quot;');
   document.write('<img src="' + clean + '"'></img>'');
