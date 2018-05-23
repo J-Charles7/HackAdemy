@@ -249,6 +249,27 @@ var sanitized = sanitizer.Sanitize(html, "http://www.example.com");
 Assert.That(sanitized, Is.EqualTo(@"<div style=""background-color: test"">"
     + @"Test<img style=""margin: 10px"" src=""http://www.example.com/test.gif""></div>"));
 ```
+
+##### Example
+```
+using System;
+using Ganss.XSS;
+
+
+					
+public class Program
+{
+	public static void Main()
+	{
+		var sanitizer = new HtmlSanitizer();
+var html = @"<script>alert('xss')</script><div onload=""alert('xss')"""
+    + @"style=""background-color: test"">Test<img src=""test.gif"""
+    + @"style=""background-image: url(javascript:alert('xss')); margin: 10px""></div>";
+var sanitized = sanitizer.Sanitize(html, "http://www.example.com");
+	Console.WriteLine(sanitized);	
+	}
+}
+```
 This is the resulting output:
 ```
 <div style="background-color: test">Test<img src="http://www.example.com/test.gif" style="margin: 10px"></div>
