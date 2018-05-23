@@ -32,7 +32,7 @@ The **OWASP ModSecurity Core Rule Set (CRS)** is a set of generic attack detecti
 
 **WASC OWASP Web Application Firewall Evaluation Criteria Project** 
 ---
- The [**Web Application Firewall Evaluation Criteria Project (WAFEC)**](https://www.owasp.org/index.php/Projects/WASC_OWASP_Web_Application_Firewall_Evaluation_Criteria_Project) serves two goals:
+ The [Web Application Firewall Evaluation Criteria Project (WAFEC)](https://www.owasp.org/index.php/Projects/WASC_OWASP_Web_Application_Firewall_Evaluation_Criteria_Project) serves two goals:
 
 * Help stakeholders understand what a WAF is and its role in protecting web sites.
 * Provide a tool for users to make an educated decision when selecting a WAF.
