@@ -228,7 +228,7 @@ Convert the predefined characters "<" (less than) and ">" (greater than) to HTML
 
 `String htmlentities ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = ini_get("default_charset") [, bool $double_encode = TRUE ]]] )`
 
-``php
+```php
         <?php
         // escape output sent to the browser
         $str = "A 'quote' is <b>bold</b>";
