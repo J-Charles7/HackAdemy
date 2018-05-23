@@ -19,7 +19,7 @@ The **OWASP ModSecurity Core Rule Set (CRS)** is a set of generic attack detecti
 * Metadata/Error Leakages
 * GeoIP Country Blocking
 
-### Note :
+### Notes :
 
 **FTW - Framework for Testing WAFs**
 ---
@@ -30,4 +30,15 @@ The **OWASP ModSecurity Core Rule Set (CRS)** is a set of generic attack detecti
 
 [FTW Home page](https://github.com/fastly/ftw)
 
+**WASC OWASP Web Application Firewall Evaluation Criteria Project**
+---
+ The **Web Application Firewall Evaluation Criteria Project (WAFEC)** serves two goals:
+
+* Help stakeholders understand what a WAF is and its role in protecting web sites.
+* Provide a tool for users to make an educated decision when selecting a WAF.
+
+
+
 [Here](https://coreruleset.org/) is the offcial web site of the OWASP CRS and this is [Github repository](https://github.com/SpiderLabs/owasp-modsecurity-crs).
+
+
