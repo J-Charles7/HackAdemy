@@ -21,7 +21,7 @@ The **OWASP ModSecurity Core Rule Set (CRS)** is a set of generic attack detecti
 
 ### Note :
 
-**FTW**
+**FTW - Framework for Testing WAFs**
 ---
 * **Find regressions in WAF** deployments by using continuous integration and issuing repeatable attacks to a WAF
 * Provide a **testing framework for new rules into ModSecurity**, if a rule is submitted it MUST have corresponding positive & negative tests
