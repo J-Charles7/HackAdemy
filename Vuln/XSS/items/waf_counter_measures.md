@@ -19,4 +19,4 @@ The **OWASP ModSecurity Core Rule Set (CRS)** is a set of generic attack detecti
 * Metadata/Error Leakages
 * GeoIP Country Blocking
 
-[Here](https://coreruleset.org/) is the offcial web site of the OWASP CRS.
+[Here](https://coreruleset.org/) are the offcial web site of the OWASP CRS and the [Github repository](https://github.com/SpiderLabs/owasp-modsecurity-crs).
