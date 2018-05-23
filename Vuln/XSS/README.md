@@ -151,9 +151,98 @@ The **HTML 4.0** 4.0’ string can be replaced by later versions, such as ‘HTM
 * **Rule #4**: Think of using a [WAF](items/waf.md) and think of `deofuscation` methods.
 * **Rule #5**: Implement [SOP](items/sop.md) policy `properly`.
  
+
  Now let's pick up some server side programming languages for more `accurate ` counter measures implementations.
- ### PHP
- -----
+These counter measures are : 
+### Data Validation 
+Data validation is the process of ensuring that the application is running with correct data. For example if the program expects an integer for user input, then any other type of data would be discared.
+`Every piece of user data must be validated when it is received(at the server side)`.
+
+### Data sanitization 
+Data sanitazion focuses on manipulating the data `to make sure it is safe` by removing any unwanted bits from the data and normalizing it to the correct form. For example if the application is expecting a plain text string as user input, any html markup should be removed.
+
+### Output escaping 
+To protect the integrity of displayed/output data, `the data should be escaped` when presenting to the user. This prevent browser from applying any unintended meaning to any special sequence of characters that may be found.
+-----
+### PHP
+Let's take the following example: 
+```html 
+        <form action="poste.php" method="post">
+                <input type="text" name="myComment">
+                <input type="submit" name="sbmit" value="Submit">
+        </form>
+```
+
+Above a simple form witch submits data through `POST` method to `poste.php` for processing.
+The `poste.php` process data as follow :
+```php 
+        <?php
+
+        echo $_POST["myComment"];
+```
+This code is xss vulnerable. To make it security solid wich prevents XSS attacks, we should be mindfull of `data validation, data sanitazion, and output escaping`.
+
+1. Data validation
+The way to validate the data is to define a kind of whitelist for each user input.
+This could be perfomed with regular expression in php.
+For example for US phone number validation, the code will be :
+
+```php 
+        <?php
+        // validate a US phone number
+        if (preg_match('/^((1-)?d{3}-)d{3}-d{4}$/', $phone)) {
+                echo $phone . " is valid format.";
+        }
+
+```
+Tutorials for regular exression could be found [here](https://openclassrooms.com/courses/concevez-votre-site-web-avec-php-et-mysql/les-expressions-regulieres-partie-1-2)
+
+
+2. Data sanitization
+* PHP `strip_tag : string strip_tags ( string $str [, string $allowable_tags ] )`
+This function tries to return a string with all NULL bytes, HTML and PHP tags stripped from a given str.
+
+```php
+        <?php
+        // sanitize HTML from the myComment content
+        $comment = strip_tags($_POST["myComment"]);
+```
+`Warning
+This function does not modify any attributes on the tags that you allow using allowable_tags, including the style and onmouseover attributes that a mischievous user may abuse when posting text that will be shown to other users.`
+
+* PHP `filter_var()` Functiona
+The `filter_var() : https://www.w3schools.comhp_f` function both validate and sanitize data.It filters a single variable with a specified filter.
+The following example uses this function to remove all HTML tags from a string:
+```php
+        <?php
+        $str = "<h1>Hello World!</h1>";
+        $newstr = filter_var($str, FILTER_SANITIZE_STRING);
+        echo $newstr;
+```
+[Here](https://www.w3schools.com/php/php_filter.asp) for more informations about filters.
+
+
+
+3. Output escaping
+Convert the predefined characters "<" (less than) and ">" (greater than) to HTML entities:
+
+`String htmlentities ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = ini_get("default_charset") [, bool $double_encode = TRUE ]]] )`
+
+``php
+        <?php
+        // escape output sent to the browser
+        $str = "A 'quote' is <b>bold</b>";
+
+        // Outputs: A 'quote' is &lt;b&gt;bold&lt;/b&gt;
+        echo htmlentities($str);
+```
+----
+## Java implementation 
+
+1. Data validation
+
+
+-----
  
  ### ASP.Net
  -----
