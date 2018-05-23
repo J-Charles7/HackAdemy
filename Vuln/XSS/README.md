@@ -159,8 +159,7 @@ The **HTML 4.0** 4.0’ string can be replaced by later versions, such as ‘HTM
  
  ### C#
  -----
- HtmlSanitizer
-=============
+ #### HtmlSanitizer
 
 HtmlSanitizer is a .NET library for cleaning HTML fragments and documents from constructs that can lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
 It uses [AngleSharp](https://github.com/AngleSharp/AngleSharp) to parse, manipulate, and render HTML and CSS.
