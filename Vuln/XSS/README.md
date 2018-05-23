@@ -311,7 +311,9 @@ def hello():
 # where hello.html is:
 # <html>Hello {{ name }}</html>
 ```
-
+Note : The `escape` function is described as follows:
+* It converts the characters `&, <, >, ‘, and ”` in strings to `HTML-safe sequences`. Use this if you need to display text that might contain such characters in HTML. Marks return value as markup string.
+* It returns markup objects so that double escaping can’t happen.
 Any HTML content that is generated directly within a request handler should use the appropriate escaping function:
 ```Python
 from flask import escape
