@@ -5,4 +5,4 @@ A WAF is differentiated from a regular firewall in that a WAF is able to filter 
 applications while regular firewalls serve as a safety gate between servers. 
 All commercial WAF offerings `cover OWASP's ten flaws at a minimum`.
 ## Learn more
-[More](https://en.wikipedia.org/wiki/Web_application_firewall)information.
+[More] (https://en.wikipedia.org/wiki/Web_application_firewall)information.
