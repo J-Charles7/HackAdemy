@@ -24,11 +24,11 @@ Before we examine deeply one of these rules, let us figure out the `general synt
 
 ![ModSecurity Rule Syntax](ModSecurityRuleWriting.png)
 
-This rule blocks XSS vectors making use of `javascript uri and tags`, e.g.: 
+To block the XSS vectors making use of `javascript uri and tags`, e.g.: 
 ```HTML
 <p style="background:url(javascript:alert(1))">
 ```
-
+This rule is used:
 ```CGI
 SecRule REQUEST_COOKIES|!REQUEST_COOKIES:/__utm/|REQUEST_COOKIES_NAMES|REQUEST_HEADERS:User-Agent|REQUEST_HEADERS:Referer|ARGS_NAMES|ARGS|XML:/* "(?i)(?:<(?:(?:apple|objec)t|isindex|embed|style|form|meta)\b[^>]*?>[\s\S]*?|(?:=|U\s*?R\s*?L\s*?\()\s*?[^>]*?\s*?S\s*?C\s*?R\s*?I\s*?P\s*?T\s*?:)" \
 	"msg:'XSS Filter - Category 4: Javascript URI Vector',\
