@@ -30,5 +30,7 @@ Because **ModSecurity** is an Apache module, you can add it to any compatible ve
 * **Reverse proxy**
 Reverse proxies are effectively HTTP routers, designed to stand between web servers and their clients. When you install a dedicated Apache reverse proxy and add ModSecurity to it, you get a â€œproperâ€ network web application firewall, which you can use to protect any number of web servers on the same network. Many security practitioners prefer having a separate security layer. With it you get complete isolation from the systems you are protecting. On the performance front, a `standalone ModSecurity` will have resources dedicated to it, which means that you will be able to do more (i.e., have more complex rules). The `main disadvantage of this approach` is the new point of failure, which will need to be addressed with a high-availability setup of two or more reverse proxies. 
 
+Note: It works with **Apache, NNGINX and IIS**.
+
 ## Reference
 [Home page](https://www.modsecurity.org)
