@@ -2,7 +2,7 @@
 ---
 
 ## Overview
-Content-Security-Policy is a security satandard which permits to prevent from XSS, CLickjacking and other code injection attacks. As the same origin policy doesn't cover JavaScript, CSS, HTML frames, web workers, fonts, images, embeddable objects such as Java applets, ActiveX, audio and video files, and other HTML5 features tag, the CSP permits to ``restrict them origin with policies``. 
+**Content-Security-Policy** is a security standard which permits to prevent from XSS, **CLickjacking** and other code injection attacks. As the same origin policy doesn't cover JavaScript, CSS, HTML frames, web workers, fonts, images, embeddable objects such as Java applets, ActiveX, audio and video files, and other HTML5 features tag, the CSP permits to ``restrict them origin with policies``. 
 This can be done by setting a Content Security Policy which is `whitelists of trusted sources` content for the website.
 
 ----
@@ -32,7 +32,7 @@ Policies could be delivered by HTML element or by the server via HTTP header res
 
 2. With server Header 
 * Apache2
-```
+```XML
 <IfModule mod_headers.c>
 
     Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
@@ -49,7 +49,7 @@ Policies could be delivered by HTML element or by the server via HTTP header res
 ```
 
 * nginx 
-```
+```CGI
 # config to don't allow the browser to render the page inside an frame or iframe
 # and avoid clickjacking http://en.wikipedia.org/wiki/Clickjacking
 # if you need to allow [i]frames, you can use SAMEORIGIN or even set an uri with ALLOW-FROM uri
