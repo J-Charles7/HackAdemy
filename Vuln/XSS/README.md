@@ -249,6 +249,10 @@ var sanitized = sanitizer.Sanitize(html, "http://www.example.com");
 Assert.That(sanitized, Is.EqualTo(@"<div style=""background-color: test"">"
     + @"Test<img style=""margin: 10px"" src=""http://www.example.com/test.gif""></div>"));
 ```
+This is the resulting output:
+```
+<div style="background-color: test">Test<img src="http://www.example.com/test.gif" style="margin: 10px"></div>
+```
 
 There's an [online demo](http://xss.ganss.org/), plus there's also a [.NET Fiddle](https://dotnetfiddle.net/qqpiDh) you can play with.
 
