@@ -113,7 +113,7 @@ myCookie.HttpOnly = True
 Response.AppendCookie(myCookie)
 ```
 * However, in `.NET 1.1`, you would have to do this *manually*, e.g.
-```.Net
+```VB.Net
 Response.Cookies[cookie].Path += ";HttpOnly";
 ```
 ### Using Python (cherryPy) to Set HttpOnly
@@ -124,7 +124,7 @@ To use HTTP-Only cookies with **Cherrypy** sessions just add the following line 
 tools.sessions.httponly = True
 ```
 If you use SLL you can also make your cookies secure (encrypted) to avoid **"man-in-the-middle"** cookies reading with:
-```
+```Python
 tools.sessions.secure = True
 ```
 ###  Using PHP to set HttpOnly 
