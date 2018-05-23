@@ -159,10 +159,11 @@ Data validation is the process of ensuring that the application is running with 
 `Every piece of user data must be validated when it is received(at the server side)`.
 
 ### Data sanitization 
-Data sanitazion focuses on manipulating the data `to make sure it is safe` by removing any unwanted bits from the data and normalizing it to the correct form. For example if the application is expecting a plain text string as user input, any html markup should be removed.
+Data sanitazion focuses on manipulating the data `to make sure it is safe `by removing any unwanted bits from the data and normalizing it to the correct form. For example if the application is expecting a plain text string as user input, any html markup should be removed.
 
 ### Output escaping 
 To protect the integrity of displayed/output data, `the data should be escaped` when presenting to the user. This prevent browser from applying any unintended meaning to any special sequence of characters that may be found.
+
 -----
 ### PHP
 Let's take the following example: 
