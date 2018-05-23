@@ -24,6 +24,41 @@ Before we examine deeply one of these rules, let us figure out the `general synt
 
 ![ModSecurity Rule Syntax](ModSecurityRuleWriting.png)
 
+This rule blocks XSS vectors making use of `javascript uri and tags`, e.g.: 
+```HTML
+<p style="background:url(javascript:alert(1))">
+```
+
+```CGI
+SecRule REQUEST_COOKIES|!REQUEST_COOKIES:/__utm/|REQUEST_COOKIES_NAMES|REQUEST_HEADERS:User-Agent|REQUEST_HEADERS:Referer|ARGS_NAMES|ARGS|XML:/* "(?i)(?:<(?:(?:apple|objec)t|isindex|embed|style|form|meta)\b[^>]*?>[\s\S]*?|(?:=|U\s*?R\s*?L\s*?\()\s*?[^>]*?\s*?S\s*?C\s*?R\s*?I\s*?P\s*?T\s*?:)" \
+	"msg:'XSS Filter - Category 4: Javascript URI Vector',\
+	id:941140,\
+	severity:'CRITICAL',\
+	phase:request,\
+	t:none,t:utf8toUnicode,t:urlDecodeUni,t:htmlEntityDecode,t:jsDecode,t:cssDecode,t:removeNulls,\
+	rev:'3',\
+	ver:'OWASP_CRS/3.0.0',\
+	maturity:'1',\
+	accuracy:'8',\
+	block,\
+	ctl:auditLogParts=+E,\
+	capture,\
+	tag:'application-multi',\
+	tag:'language-multi',\
+	tag:'platform-multi',\
+	tag:'attack-xss',\
+	tag:'OWASP_CRS/WEB_ATTACK/XSS',\
+	tag:'WASCTC/WASC-8',\
+	tag:'WASCTC/WASC-22',\
+	tag:'OWASP_TOP_10/A3',\
+	tag:'OWASP_AppSensor/IE1',\
+	tag:'CAPEC-242',\
+	logdata:'Matched Data: %{TX.0} found within %{MATCHED_VAR_NAME}: %{MATCHED_VAR}',\
+	setvar:'tx.msg=%{rule.msg}',\
+	setvar:tx.xss_score=+%{tx.critical_anomaly_score},\
+	setvar:tx.anomaly_score=+%{tx.critical_anomaly_score},\
+	setvar:tx.%{rule.id}-OWASP_CRS/WEB_ATTACK/XSS-%{matched_var_name}=%{tx.0}"
+```
 ### Notes :
 
 **FTW - Framework for Testing WAFs**
