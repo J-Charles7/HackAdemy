@@ -7,7 +7,7 @@ Note : The content of this page is taken from **Activestate**:
 This cleanses user input of potentially dangerous HTML or scripting code that can be used to launch "cross-site scripting" ("XSS") 
 attacks, or run other harmful or annoying code. You want to run this on any user-entered text that will be saved and retransmitted 
 to other users of your web site. This uses `only standard Python libraries`.
-```
+```Python
 from htmllib import HTMLParser
 from cgi import escape
 from urlparse import urlparse
@@ -128,7 +128,7 @@ However, sometimes you want to let the user use some HTML tags to include links,
 your users to define a subset of HTML tags that you choose, but scrubs them carefully to make sure no harmful code comes through.
 
 Usage:
-```
+```Python
 >>> import xss
 >>> x = xss.XssCleaner()
 >>> test = """A good link should remain.
@@ -142,7 +142,7 @@ This code lets you allow your users to define a subset of HTML tags that you cho
 harmful code comes through.
 ```
 Usage:
-```
+```Python
 >>> import xss
 >>> x = xss.XssCleaner()
 >>> test = """A good link should remain.
