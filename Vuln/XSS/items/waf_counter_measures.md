@@ -19,7 +19,7 @@ The **OWASP ModSecurity Core Rule Set (CRS)** is a set of generic attack detecti
 * Metadata/Error Leakages
 * GeoIP Country Blocking
 
-In CRS v3.0.2, the rules concerning XSS injections are in the file named as **REQUEST-941-APPLICATION-ATTACK-XSS.conf**.
+In **CRS v3.0.2**, the rules concerning XSS injections are in the file named as **REQUEST-941-APPLICATION-ATTACK-XSS.conf**.
 Before we examine deeply one of these rules, let us figure out the `general syntax of a rule in ModSecurity`.
 
 ![ModSecurity Rule Syntax](ModSecurityRuleWriting.png)
