@@ -178,8 +178,8 @@ Above a simple form witch submits data through `POST` method to `poste.php` for 
 The `poste.php` process data as follow :
 ```php 
         <?php
-
-        echo $_POST["myComment"];
+        	echo $_POST["myComment"];
+	?>
 ```
 This code is xss vulnerable. To make it security solid wich prevents XSS attacks, we should be mindfull of `data validation, data sanitazion, and output escaping`.
 
@@ -194,7 +194,7 @@ For example for US phone number validation, the code will be :
         if (preg_match('/^((1-)?d{3}-)d{3}-d{4}$/', $phone)) {
                 echo $phone . " is valid format.";
         }
-
+	?>
 ```
 Tutorials for regular exression could be found [here](https://openclassrooms.com/courses/concevez-votre-site-web-avec-php-et-mysql/les-expressions-regulieres-partie-1-2)
 
@@ -207,6 +207,7 @@ This function tries to return a string with all NULL bytes, HTML and PHP tags st
         <?php
         // sanitize HTML from the myComment content
         $comment = strip_tags($_POST["myComment"]);
+	?>
 ```
 `Warning
 This function does not modify any attributes on the tags that you allow using allowable_tags, including the style and onmouseover attributes that a mischievous user may abuse when posting text that will be shown to other users.`
@@ -219,6 +220,7 @@ The following example uses this function to remove all HTML tags from a string:
         $str = "<h1>Hello World!</h1>";
         $newstr = filter_var($str, FILTER_SANITIZE_STRING);
         echo $newstr;
+	?>
 ```
 [Here](https://www.w3schools.com/php/php_filter.asp) for more informations about filters.
 
@@ -236,6 +238,7 @@ Convert the predefined characters "<" (less than) and ">" (greater than) to HTML
 
         // Outputs: A 'quote' is &lt;b&gt;bold&lt;/b&gt;
         echo htmlentities($str);
+	?>
 ```
 ----
 ## Java implementation 
