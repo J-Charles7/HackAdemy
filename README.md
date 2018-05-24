@@ -6,7 +6,7 @@ In fact, there is a directory dedicated to each vulnerability. Within this, rele
 Therefore, we are trying, as much as possible, to start from scratch for the best understanding of the readers.
 
 ## License
-This project is under `GPLv3 License` which terms can be found [here](LICENSE.md).
+This project is under `GPLv3 License` which terms can be found [here](LICENSE).
 
 
 Enjoy!
