@@ -121,7 +121,15 @@ Response.Cookies[cookie].Path += ";HttpOnly";
 The use of **HTTPOnly** is specified in the **set_cookie** function, while building and binding a cookie to a response.
 
 ```Python
-set_cookie(key, value='', max_age=None, expires=None, path='/', domain=None, secure=False, httponly=False, samesite=None)
+set_cookie(key, 
+           value='', 
+           max_age=None, 
+           expires=None, 
+           path='/', 
+           domain=None, 
+           secure=False, 
+           httponly=False, 
+           samesite=None)
 ```
 
 Sets a cookie. The parameters are the same as in the cookie Morsel object in the Python standard library but it accepts unicode data, too.
