@@ -150,7 +150,7 @@ The **HTML 4.0** 4.0’ string can be replaced by later versions, such as ‘HTM
 * **Rule #3**: `Disable`/`remove` unuseful features/modules cause `more one's web site embeds packages, higher is the risk of XSS vulnerability presence` mostly in CMSs.
 * **Rule #4**: Think of using a [WAF](items/waf.md) and think of `deofuscation` methods. This part is developped [here](items/waf_counter_measures.md) using the **Open Source WAF** : [ModSecurity](items/modsecurity.md).
 * **Rule #5**: Implement [SOP](items/sop.md) policy `properly`.
-* **Rule #6**: User [HTTPOnly](items/http_only.md) while serving session cookies.
+* **Rule #6**: Use [HTTPOnly](items/http_only.md) while serving session cookies.
  
 
  Now let's pick up some server side programming languages for more `accurate ` countermeasures implementations.
