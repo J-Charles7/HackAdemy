@@ -152,8 +152,8 @@ The **HTML 4.0** 4.0’ string can be replaced by later versions, such as ‘HTM
 * **Rule #5**: Implement [SOP](items/sop.md) policy `properly`.
  
 
- Now let's pick up some server side programming languages for more `accurate ` counter measures implementations.
-These counter measures are : 
+ Now let's pick up some server side programming languages for more `accurate ` countermeasures implementations.
+These countermeasures are : 
 ### Data Validation 
 Data validation is the process of ensuring that the application is running with correct data. For example if the program expects an integer for user input, then any other type of data would be discared.
 `Every piece of user data must be validated when it is received(at the server side)`.
