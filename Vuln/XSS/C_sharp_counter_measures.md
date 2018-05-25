@@ -1,3 +1,6 @@
+# C# XSS Countermeasures
+-----
+
  #### HtmlSanitizer
 
 HtmlSanitizer is a .NET library for cleaning HTML fragments and documents from constructs that can lead to [XSS attacks](https://en.wikipedia.org/wiki/Cross-site_scripting).
