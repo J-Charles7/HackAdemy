@@ -173,12 +173,6 @@ To protect the integrity of displayed/output data, `the data should be escaped` 
 ## Java implementation 
 
 1. Data validation
-
-
------
- 
- ### ASP.Net
- -----
  
  ### C#
  -----
@@ -190,6 +184,7 @@ To protect the integrity of displayed/output data, `the data should be escaped` 
  
  ### Node.JS
  -----
+ [content](items/node_js_countermeasures.md)
  
  ### Python
  -----
