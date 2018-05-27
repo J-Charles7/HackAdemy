@@ -170,7 +170,7 @@ To protect the integrity of displayed/output data, `the data should be escaped` 
 [Content](items/php_counter_measures.md)
 
 
-## Java implementation 
+## Java  
 
 [Content](items/java_counter_measures.md)
  
@@ -179,9 +179,6 @@ To protect the integrity of displayed/output data, `the data should be escaped` 
 [Content](items/c_sharp_counter_measures.md)
 
 
- ### Java
- -----
- 
  ### Node.JS
  -----
  [content](items/node_js_countermeasures.md)
