@@ -186,4 +186,81 @@ To protect the integrity of displayed/output data, `the data should be escaped` 
 ### Python
 [Content](items/python_counter_measures.md)
 
+## Client Side XSS counter measures 
+* **Rule #1**: Avoiding client side document rewriting, redirection, or other sensitive actions, using client side data. Most of these effects can be achieved by using dynamic pages (server side).
+
+* **Rule #2**: Analyzing and hardening the client side (Javascript) code. Reference to DOM objects that may be influenced by the user (attacker) should be inspected, including (but not limited to):
+1. document.URL
+2. document.URLUnencoded
+3. document.location (and many of its properties)
+4. document.referrer
+5. window.location (and many of its properties)
+
+`Note that a document object property or a window object property may be referenced syntactically in many ways - explicitly (e.g. window.location), implicitly (e.g. location), or via obtaining a handle to a window and using it (e.g. handle_to_some_window.location).`
+
+* **Rule #3**:Special attention should be given to scenarios wherein the DOM is modified, either explicitly or potentially, either via raw access to the HTML or via access to the DOM itself, e.g. (by no means an exhaustive list, there are probably various browser extensions):
+Write raw HTML, e.g.:
+```js
+	document.write(…)
+        document.writeln(…)
+        document.body.innerHtml=…
+```
+
+Directly modifying the DOM (including DHTML events), e.g.:
+```js
+     	document.forms[0].action=… //and various other collections
+        document.attachEvent(…)
+        document.create…(…)
+        document.execCommand(…)
+        document.body. … //accessing the DOM through the body object
+        window.attachEvent(…)
+```
+
+Replacing the document URL, e.g.:
+```js
+	document.location=… (and assigning to location’s href, host and hostname)
+        document.location.hostname=…
+        document.location.replace(…)
+        document.location.assign(…)
+        document.URL=…
+        window.navigate(…)
+
+```
+
+Opening/modifying a window, e.g.:
+```js
+        document.open(…)
+        window.open(…)
+        window.location.href=… (and assigning to location’s href, host and hostname)
+```
+
+Directly executing script, e.g.:
+ ```js
+ 	eval(…)
+        window.execScript(…)
+        window.setInterval(…)
+        window.setTimeout(…)
+```
  
+
+To continue the above example, an effective defense can be replacing the original script part with the following code, which verifies that the string written to the HTML page consists of alphanumeric characters only:
+
+```html 
+	<SCRIPT>
+	var pos=document.URL.indexOf("name=")+5;
+	var name=document.URL.substring(pos,document.URL.length);
+	if (name.match(/^[a-zA-Z0-9]*$/)){
+      		document.write(name);
+	}
+	else{
+	      window.alert("Security error");
+	}
+</SCRIPT>
+```
+ 
+
+Such functionality can (and perhaps should) be provided through a generic library for sanitation of data (i.e. a set of Javascript functions that perform input validation and/or sanitation). The downside is that the security logic is exposed to the attackers - it is embedded in the HTML code. This makes it easier to understand and to attack it. While in the above example, the situation is very simple, in more complex scenarios wherein the security checks are less than perfect, this may come to play.
+
+ 
+
+* **Rule #4**: Employing a very strict IPS policy in which, for example, page welcome.html is expected to receive a one only parameter named “name”, whose content is inspected, and any irregularity (including excessive parameters or no parameters) results in not serving the original page, likewise with any other violation (such as an Authorization header or Referer header containing problematic data), the original content must not be served. And in some cases, even this cannot guarantee that an attack will be thwarted.
