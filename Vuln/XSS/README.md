@@ -180,9 +180,10 @@ To protect the integrity of displayed/output data, `the data should be escaped` 
 ----
 
 ### Node.JS
-[content](items/node_js_countermeasures.md)
+[Content](items/node_js_countermeasures.md)
 ----
  
 ### Python
 [Content](items/python_counter_measures.md)
+
  
