@@ -166,22 +166,23 @@ Data sanitazion focuses on manipulating the data `to make sure it is safe `by re
 To protect the integrity of displayed/output data, `the data should be escaped` when presenting to the user. This prevent browser from applying any unintended meaning to any special sequence of characters that may be found.
 
 -----
+
 ### PHP
 [Content](items/php_counter_measures.md)
 ----
 
-## Java  
+### Java  
 [Content](items/java_counter_measures.md)
-  -----
+----
 
 ### C#
 [Content](items/c_sharp_counter_measures.md)
 ----
 
- ### Node.JS
-  [content](items/node_js_countermeasures.md)
- ----
+### Node.JS
+[content](items/node_js_countermeasures.md)
+----
  
- ### Python
-  [Content](items/python_counter_measures.md)
+### Python
+[Content](items/python_counter_measures.md)
  
