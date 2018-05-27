@@ -172,7 +172,7 @@ To protect the integrity of displayed/output data, `the data should be escaped` 
 
 ## Java implementation 
 
-1. Data validation
+[Content](items/java_counter_measures.md)
  
  ### C#
  -----
