@@ -10,5 +10,5 @@
 </details>
 <details>
     <summary>Hidden text content</summary>
-    Here is the content of this part. I am free to use HTML tags within <b><details></b> tags.
+    Here is the content of this part. I am free to use HTML tags within <b>details</b> tags.
 </details>
