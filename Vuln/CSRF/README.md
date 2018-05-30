@@ -10,4 +10,7 @@
 * Vulnerability exploitation samples
 * Presence detection
 * Countermeasures guidelines
+   * Server side
+   * Client side
+   * Possible policy(ies)
 * Countermeasures implementation
