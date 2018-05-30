@@ -3,7 +3,7 @@
 * Lexic
 * Overview 
    * Sigle definition
-   * Exploitbility
+   * Exploitability
    * Impact
    * Components (server, client, etc)
    * Types 
@@ -14,3 +14,4 @@
    * Client side
    * Possible policy(ies)
 * Countermeasures implementation
+* Common exploitation tools 
