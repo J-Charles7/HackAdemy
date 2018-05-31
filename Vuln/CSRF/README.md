@@ -43,3 +43,7 @@ In our example, the **Website visitor** is the **client** and the **website** is
 --------
 ### Multi staged CSRF 
 --------
+## Presence detection
+Detection of CSRF flaws is made via **penetration testing** or **code analysis**. 
+* Penetration testing
+* Code analysis
