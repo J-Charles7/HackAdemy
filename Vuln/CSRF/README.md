@@ -22,9 +22,12 @@
 
 ## Exploitability
 
+## Impact 
+## Components
+As in common web attacks, the main components in **XSRF** attacks are **client** (web browser) and **server**.
+A description of each component will be based on the example below (taken from [inccapsula](https://www.incapsula.com/web-application-security/csrf-cross-site-request-forgery.html))
+![CSRF attack components and steps](items/csrf.png)
 
-## Impacts 
-------
 ## CSRF Types 
 ### One stage CSRF
 --------
