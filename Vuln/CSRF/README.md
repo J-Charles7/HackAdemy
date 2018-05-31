@@ -27,15 +27,14 @@
 As in common web attacks, the main components in **XSRF** attacks are **client** (web browser) and **server**.
 A description of each component will be based on the example below (taken from [incapsula](https://www.incapsula.com/web-application-security/csrf-cross-site-request-forgery.html))
 ![CSRF attack components and steps](items/csrf.png)
-* **Explaination**
+* ***Explaination***
 1. The attack perpetrator builds a malicious link embedding a **fund transfer** performance : this the attack. This action can be only performed by the owner of the account that will undergo the transfer. 
 2. As the attacker is the owner, he sends this link to a web visitor by **email** for instance. 
 3. The **logged visitor clicks** on the hyperlink and **triggers** the request for funds transfer. And he is logged, the transfer will be realized with his prilege, thus, on his account. This request is sent to the **server** of his bank.
 4. The visitor's request is processed by the bank's website and the transfer is done.
 
-* **Note** 
-
-The arrow originating from the **Website** doesn't mean that the result a **CSRF** attack is always notified to the **attacker**. But in this case, it is there to show that the transfer is made from the **Website visitor** to the **attacker**.
+* ***Note*** 
+ The arrow originating from the **Website** doesn't mean that the result a **CSRF** attack is always notified to the **attacker**. But in this case, it is there to show that the transfer is made from the **Website visitor** to the **attacker**.
 In our example, the **Website visitor** is the **client** and the **website** is the **server**.
 
 ## CSRF Types 
