@@ -15,3 +15,11 @@
    * Possible policy(ies)
 * Countermeasures implementation
 * Common exploitation tools 
+
+## Impacts 
+------
+## CSRF Types 
+### One stage CSRF
+--------
+### Multi staged CSRF 
+--------
