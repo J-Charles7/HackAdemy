@@ -24,6 +24,14 @@
 Attacker creates forged HTTP requests and tricks a victim into submitting them via image tags, XSS, or numerous other techniques. If the user is authenticated, the attack succeeds. The only limitation on the success of a **CSRF** attack is the **vicitm's authentication**. An other important point in this kind of attack consists in findind and setting properly the malicious hyperlink.
 
 ## Impact 
+The following is a list of potential uses for CSRF:
+* Transfer money from one bank account to another.
+* Use a content management system to add/delete content from a website.
+* Change a user’s password.
+* Data breaches 
+* Add items to a user’s shopping basket.
+* Change the delivery address of an orde
+
 ## Components
 As in common web attacks, the main components in **XSRF** attacks are **client** (web browser) and **server**.
 A description of each component will be based on the example below (taken from [incapsula](https://www.incapsula.com/web-application-security/csrf-cross-site-request-forgery.html))
@@ -41,8 +49,13 @@ In our example, the **Website visitor** is the **client** and the **website** is
 
 ## CSRF Types 
 ### One stage CSRF
+**One step CSRF** is when the action trigered by the hacker link doesn't need more action to be performed. So in this kind of CSRF the hacker just need to forged a link and send it to the the victim. 
+
 --------
 ### Multi staged CSRF 
+In **multi-step csrf** the action trigered by the hacker link needs more actions from the victim to be completed.So here, the hacker will forged multi links trigered by time or by others events in order for the CSRF to be completely done.
+![CSRF multi-steps](items/csrfmulti.png)
+
 --------
 ## Presence detection
 Detection of CSRF flaws is made via **penetration testing** or **code analysis**. 
