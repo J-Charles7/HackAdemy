@@ -34,6 +34,7 @@ A description of each component will be based on the example below (taken from [
 4. The visitor's request is processed by the bank's website and the transfer is done.
 
 ***Note*** 
+
 The arrow originating from the **Website** doesn't mean that the result a **CSRF** attack is always notified to the **attacker**. But in this case, it is there to show that the transfer is made from the **Website visitor** to the **attacker**.
 In our example, the **Website visitor** is the **client** and the **website** is the **server**.
 
