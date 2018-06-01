@@ -130,7 +130,7 @@ Detection of **CSRF** flaws is made via **penetration testing** or **code analys
 # Countermeasures guidelines
 ## Server-side
 ## Client-side
-Browser extensions
+***Browser extensions***
 * **RequestPolicy** (for `Mozilla Firefox`)  can prevent **CSRF** by providing a default-deny policy for cross-site requests. However, this can significantly interfere with the normal operation of many websites. 
 
 * **uMatrix** (for both `Firefox` and `Google Chrome/Chromium`) works like **RequestPolicy**.
@@ -141,7 +141,7 @@ Browser extensions
 
 * The Self **Destructing Cookies extension for Firefox** does not directly protect from CSRF, but can reduce the attack window, by deleting cookies as soon as they are no longer associated with an open tab.
 
-User good practices
+***User good practices***
 * **Logoff** when you are done using a site!.
 * Use **multiple browsers** : one for accessing sensitive sites/applications and one for surfing freely.
   
