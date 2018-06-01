@@ -59,7 +59,7 @@ In **multi-step csrf** the action trigered by the hacker link needs more actions
 ## GET scenario
 In this part, we will give a technical description of the figure used in the [Components](#components) section. 
 In addition to this, the **parameters of mailicious link** are all transmitted via an **HTTP GET** method.
-```html
+```http
 GET http://bank.com/transfer.do?acct=PERPRETOR&amount=100 HTTP/1.1
 ```
 But as mentioned above, the malicious link is **embedded** in something that seems lawful.
