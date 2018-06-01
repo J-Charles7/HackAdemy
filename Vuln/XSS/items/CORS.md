@@ -12,7 +12,7 @@ Header-Name : Value
 ```
 Value:
 * http://example.com
-* * : all
+* \* : anything
 
 ## Request headers
 * Origin
