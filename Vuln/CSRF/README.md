@@ -76,7 +76,7 @@ If this image tag were included in the email, the **Website visitor** wouldn't s
 ## POST scenario
 The only difference between **GET** and **POST** attacks is how the attack is being executed by the victim. Let's assume the bank now uses **POST** and the vulnerable request looks like this: 
 
-```html
+```http
 POST http://bank.com/transfer.do HTTP/1.1
 acct=PERPRETOR&amount=100
 ```
