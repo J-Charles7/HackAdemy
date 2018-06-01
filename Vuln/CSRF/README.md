@@ -21,7 +21,9 @@
 **CSRF** stands for **C**ross **S**ite **R**equest **F**orgery. It is often abbreviated as **XSRF** and is also known as **one-click attack** or **session riding**. **CSRF** is an attack that forces an end user to **execute unwanted actions** on a web application in which they're **currently authenticated**. **CSRF** attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the forged request. With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker's choosing. If the victim is a normal user, a successful **CSRF attack** can force the user to perform state changing requests like transferring funds, changing their email address, and so forth. If the victim is an administrative account, **CSRF** can compromise the entire web application. 
 
 ## Exploitability
-Attacker creates forged HTTP requests and tricks a victim into submitting them via image tags, XSS, or numerous other techniques. If the user is authenticated, the attack succeeds. The only limitation on the success of a **CSRF** attack is the **vicitm's authentication**. An other important point in this kind of attack consists in findind and setting properly the malicious hyperlink.
+Attacker creates forged HTTP requests and tricks a victim into submitting them via image tags, XSS, or numerous other techniques. * If the user is authenticated, the attack succeeds. The main limitation on the success of a **CSRF** attack is the **vicitm's authentication**. 
+* An other important point in this kind of attack consists in findind and setting properly the malicious hyperlink : using the **right paramreters**.
+* In addition to that, the attacker must find a **very efficient method to lure the victim enough** so that he/she to click or open the malicious content proposed.
 
 ## Impact 
 The following is a list of potential uses for CSRF:
@@ -114,7 +116,7 @@ Such requests can be executed with JavaScript embedded into an exploit page:
     var x = new XMLHttpRequest();
     x.open("PUT","http://bank.com/transfer.do",true);
     x.setRequestHeader("Content-Type", "application/json"); 
-    x.send(JSON.stringify({"acct":"BOB", "amount":100})); 
+    x.send(JSON.stringify({"acct":"PERPRETOR", "amount":100})); 
   }
 </script>
 <body onload="put()">
