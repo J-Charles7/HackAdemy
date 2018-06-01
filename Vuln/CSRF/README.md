@@ -52,7 +52,7 @@ In our example, the **Website visitor** is the **client** and the **website** is
 **One step CSRF** is when the action trigered by the hacker link doesn't need more action to be performed. So in this kind of CSRF the hacker just need to forged a link and send it to the the victim. 
 
 ### Multi staged CSRF 
-In **multi-step CSRF** the action trigered by the hacker link needs more actions from the victim to be completed.So here, the hacker will forged multi links trigered by time or by others events in order for the CSRF to be completely done.
+In **multi-step CSRF** the action trigered by the hacker link needs more actions from the victim to be completed.So here, the hacker will forged multi links triggered by time or by others events in order for the CSRF to be completely done.
 ![CSRF multi-steps](items/image.png)
 
 # Exploitation samples
@@ -120,7 +120,7 @@ Such requests can be executed with JavaScript embedded into an exploit page:
 <body onload="put()">
 ```
 ## Presence detection
-Detection of CSRF flaws is made via **penetration testing** or **code analysis**. 
+Detection of **CSRF** flaws is made via **penetration testing** or **code analysis**. 
 * **Penetration testing**
 * **Code analysis**
 # Countermeasures guidelines
