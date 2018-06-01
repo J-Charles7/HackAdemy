@@ -33,7 +33,7 @@ The following is a list of potential uses for CSRF:
 * Change the delivery address of an orde
 
 ## Components
-As in common web attacks, the main components in **XSRF** attacks are **client** (web browser) and **server**.
+As in common web attacks, the main components in **XSRF** attacks are **client** (web browser) and (web) **server**.
 A description of each component will be based on the example below (taken from [incapsula](https://www.incapsula.com/web-application-security/csrf-cross-site-request-forgery.html))
 ![CSRF attack components and steps](items/csrf.png)
 ***Explaination***
