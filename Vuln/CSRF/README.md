@@ -58,9 +58,11 @@ In **multi-step CSRF** the action trigered by the hacker link needs more actions
 ![CSRF multi-steps](items/image.png)
 
 # Exploitation samples
+**XSRF** Attacks can be launched by placing the malicious code/UTL, automatic-action HTML image elements **on forums and email spam**, so that browsers visiting these pages would open them automatically, without much user action.
 ## GET scenario
 In this part, we will give a technical description of the figure used in the [Components](#components) section. 
-In addition to this, the **parameters of mailicious link** are all transmitted via an **HTTP GET** method.
+In addition to this, the **parameters of malicious link** are all transmitted via an **HTTP GET** method.
+
 ```http
 GET http://bank.com/transfer.do?acct=PERPRETOR&amount=100 HTTP/1.1
 ```
@@ -129,5 +131,8 @@ Detection of **CSRF** flaws is made via **penetration testing** or **code analys
 ## Server side
 ## Client side
 ## Policies
+### SOP - Same Origin Policy
+[SOP](../XSS/items/sop.md) is a policy preventing which prevents the **web browser** from accessing a web site if the requested web site and the current one do not have the same origin.
+It prevents from the [example described above](#other-http-methods).
 # Countermeasures implementation
 # Common exploitation tools
