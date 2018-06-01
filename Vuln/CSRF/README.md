@@ -138,6 +138,10 @@ Detection of **CSRF** flaws is made via **penetration testing** or **code analys
 
 * The **NoScript** extension for `Firefox` mitigates **CSRF** threats by distinguishing trusted from untrusted sites, and removing authentication & payloads from POST requests sent by untrusted sites to trusted ones. The `Application Boundary Enforcer` module in **NoScript** also blocks requests sent from internet pages to local sites (e.g. localhost), preventing **CSRF** attacks on local services (such as `uTorrent`) or `routers`.
 
+* Appart these technical points, it is a good practice to:
+  * **Logoff** when you are done using a site!.
+  * Use **multiple browsers** : one for accessing sensitive sites/applications and one for surfing freely.
+
 * The Self **Destructing Cookies extension for Firefox** does not directly protect from CSRF, but can reduce the attack window, by deleting cookies as soon as they are no longer associated with an open tab.
 ## Policies
 ### SOP - Same Origin Policy
