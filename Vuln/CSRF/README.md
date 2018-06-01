@@ -57,7 +57,8 @@ In **multi-step csrf** the action trigered by the hacker link needs more actions
 
 # Exploitation samples
 ## GET scenario
-In this part, we will give a technical description of the figure used in the [Components](#components) section.
+In this part, we will give a technical description of the figure used in the [Components](#components) section. 
+In addition to this, the parameters of 
 ## Presence detection
 Detection of CSRF flaws is made via **penetration testing** or **code analysis**. 
 * **Penetration testing**
