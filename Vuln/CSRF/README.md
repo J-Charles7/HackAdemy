@@ -130,13 +130,13 @@ Detection of **CSRF** flaws is made via **penetration testing** or **code analys
 # Countermeasures guidelines
 ## Server-side
 ## Client-side
-* The browser plugin **RequestPolicy** (for **Mozilla Firefox**)  can prevent **CSRF** by providing a **default-deny policy for cross-site requests**. However, **this can significantly interfere with the normal operation** of many websites. 
+* The browser plugin **RequestPolicy** (for **Mozilla Firefox**)  can prevent **CSRF** by providing a **default-deny policy for cross-site requests**. However, this can significantly interfere with the normal operation of many websites. 
 
 *  **uMatrix** (for both **Firefox** and **Google Chrome/Chromium**) works like **RequestPolicy**.
 
-* The **CsFire** extension (also for **Firefox**) can mitigate the impact of **CSRF** with **less impact on normal browsing**, by **removing authentication information from cross-site requests**.
+* The **CsFire** extension (also for **Firefox**) can mitigate the impact of **CSRF** with **less impact on normal browsing**, by removing authentication information from cross-site requests.
 
-* The **NoScript** extension for **Firefox** mitigates **CSRF** threats by **distinguishing trusted from untrusted sites**, and **removing authentication & payloads from POST requests sent by untrusted sites to trusted ones**. The **Application Boundary Enforcer** module in **NoScript** also **blocks requests sent from internet pages to local sites (e.g. localhost)**, preventing **CSRF** attacks on local services (such as **uTorrent**) or **routers**.
+* The **NoScript** extension for **Firefox** mitigates **CSRF** threats by distinguishing trusted from untrusted sites, and removing authentication & payloads from POST requests sent by untrusted sites to trusted ones. The **Application Boundary Enforcer** module in **NoScript** also blocks requests sent from internet pages to local sites (e.g. localhost), preventing **CSRF** attacks on local services (such as **uTorrent**) or **routers**.
 
 * The Self **Destructing Cookies extension for Firefox** does not directly protect from CSRF, but c**an reduce the attack window**, by deleting cookies as soon as they are no longer associated with an open tab.
 ## Policies
