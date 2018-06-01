@@ -128,11 +128,21 @@ Detection of **CSRF** flaws is made via **penetration testing** or **code analys
 * **Penetration testing**
 * **Code analysis**
 # Countermeasures guidelines
-## Server side
-## Client side
+## Server-side
+## Client-side
+* **RequestPolicy** plugin (for **Mozilla Firefox**) or **uMatrix** (for both **Firefox** and **Google Chrome/Chromium**) can prevent **CSRF** by providing a **default-deny policy for cross-site requests**. However, **this can significantly interfere with the normal operation** of many websites. 
+
+* The **CsFire** extension (also for **Firefox**) can mitigate the impact of **CSRF** with **less impact on normal browsing**, by **removing authentication information from cross-site requests**.
+
+* The **NoScript** extension for **Firefox** mitigates **CSRF** threats by **distinguishing trusted from untrusted sites**, and **removing authentication & payloads from POST requests sent by untrusted sites to trusted ones**. The **Application Boundary Enforcer** module in **NoScript** also **blocks requests sent from internet pages to local sites (e.g. localhost)**, preventing **CSRF** attacks on local services (such as **uTorrent**) or **routers**.
+
+* The Self **Destructing Cookies extension for Firefox** does not directly protect from CSRF, but c**an reduce the attack window**, by deleting cookies as soon as they are no longer associated with an open tab.
 ## Policies
 ### SOP - Same Origin Policy
-[SOP](../XSS/items/sop.md) is a policy preventing which prevents the **web browser** from accessing a web site if the requested web site and the current one do not have the same origin.
+[SOP](../XSS/items/CORS.md) is a policy preventing which prevents the **web browser** from accessing a web site if the requested web site and the current one do not have the same origin. 
 It prevents from the [example described above](#other-http-methods).
+### CORS - Cross Origin Resource Sharing
+[CORS](../XSS/items/sop.md) ia a mechanism that allows restricted resources on a web page to be requested from another domain from which the first resource was served.
+**CORS** defines a way in which a browser and server can interact to determine whether or not it is safe to allow the **cross-origin request**. It allows for more freedom and functionality than purely same-origin requests, but is more secure than simply allowing all cross-origin requests. 
 # Countermeasures implementation
 # Common exploitation tools
