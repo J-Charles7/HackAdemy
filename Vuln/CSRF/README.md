@@ -130,7 +130,9 @@ Detection of **CSRF** flaws is made via **penetration testing** or **code analys
 # Countermeasures guidelines
 ## Server-side
 ## Client-side
-* **RequestPolicy** plugin (for **Mozilla Firefox**) or **uMatrix** (for both **Firefox** and **Google Chrome/Chromium**) can prevent **CSRF** by providing a **default-deny policy for cross-site requests**. However, **this can significantly interfere with the normal operation** of many websites. 
+* The browser plugin **RequestPolicy** (for **Mozilla Firefox**)  can prevent **CSRF** by providing a **default-deny policy for cross-site requests**. However, **this can significantly interfere with the normal operation** of many websites. 
+
+*  **uMatrix** (for both **Firefox** and **Google Chrome/Chromium**) works like **RequestPolicy**.
 
 * The **CsFire** extension (also for **Firefox**) can mitigate the impact of **CSRF** with **less impact on normal browsing**, by **removing authentication information from cross-site requests**.
 
