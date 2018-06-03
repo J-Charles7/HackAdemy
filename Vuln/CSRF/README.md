@@ -154,3 +154,6 @@ It prevents from the [example described above](#other-http-methods).
 **CORS** defines a way in which a browser and server can interact to determine whether or not it is safe to allow the **cross-origin request**. It allows for more freedom and functionality than purely same-origin requests, but is more secure than simply allowing all cross-origin requests. 
 # Countermeasures implementation
 # Common exploitation tools
+## Black box
+
+## Grey box
