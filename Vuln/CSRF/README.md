@@ -154,6 +154,10 @@ It prevents from the [example described above](#other-http-methods).
 **CORS** defines a way in which a browser and server can interact to determine whether or not it is safe to allow the **cross-origin request**. It allows for more freedom and functionality than purely same-origin requests, but is more secure than simply allowing all cross-origin requests. 
 # Countermeasures implementation
 # Common exploitation tools
-## Black box
-
-## Grey box
+* [Burpsuite (Registered edition)](https://support.portswigger.net/customer/portal/articles/1965674-using-burp-to-test-for-cross-site-request-forgery-csrf-)
+* [Cross Frame Loader](http://yehg.net/lab/pr0js/pentest/cross_site_framing.php (via iframe))
+* [Cross Site Requester](http://yehg.net/lab/pr0js/pentest/cross_site_request_forgery.php (via img))
+* [CSRF Tester](http://www.owasp.org/index.php/Category:OWASP_CSRFTester_Project)
+* [CSRF-POC-Generator](https://security.love/CSRF-PoC-Genorator/)
+* [Pinata-csrf-tool](http://code.google.com/p/pinata-csrf-tool/)
+* [WebScarab Spider](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project)
