@@ -125,8 +125,8 @@ Such requests can be executed with JavaScript embedded into an exploit page:
 ```
 ## Presence detection (post-incident)
 Detection of **CSRF** flaws is made via **penetration testing** or **code analysis**. 
-* **Penetration testing**
-* **Code analysis**
+
+
 # Countermeasures guidelines
 ## Server-side
 ## Client-side
