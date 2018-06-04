@@ -138,7 +138,7 @@ Example of **STP** set by Django in a HTML form:
 **STP** is the most compatible as it only relies on HTML, `but introduces some complexity on the server side, due to the burden associated with checking validity of the token on each request`. As the token is unique and unpredictable, it also enforces proper sequence of events (e.g. screen 1, then 2, then 3) which raises usability problem (e.g. user opens multiple tabs). It can be relaxed by using per session CSRF token instead of per request CSRF token.
 
 ### Cookie-to-header token
-Web applications that use JavaScript for the majority of their operations may use an **anti-CSRF** technique that relies on [same-origin policy](#sop--same-origin-policy):
+Web applications that use JavaScript for the majority of their operations may use an **anti-CSRF** technique that relies on [same-origin policy](#sop---same-origin-policy):
 * On login, the web application sets a cookie containing a random token that remains the same for the whole user session
 ```http
 Set-Cookie: Csrf-token=i8XNjC4b8KVok4uw5RftR38Wgp2BFwql; expires=Thu, 23-Jul-2015 10:25:33 GMT; Max-Age=31449600; Path=/
