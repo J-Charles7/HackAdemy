@@ -180,6 +180,10 @@ It prevents from the [example described above](#other-http-methods).
 [CORS](../XSS/items/sop.md) ia a mechanism that allows restricted resources on a web page to be requested from another domain from which the first resource was served.
 **CORS** defines a way in which a browser and server can interact to determine whether or not it is safe to allow the **cross-origin request**. It allows for more freedom and functionality than purely same-origin requests, but is more secure than simply allowing all cross-origin requests. 
 # Countermeasures implementation
+Specific tools for **server-side** [Synchronizer token](F#synchronizer-token-pattern)
+* For **Java**: [OWASP CSRF Guard](https://www.owasp.org/index.php/CSRF_Guard)
+* For **PHP** and **Apache**: [CSRFProtector Project](https://www.owasp.org/index.php/CSRFProtector_Project)
+
 # Common exploitation tools
 * [Burpsuite (Registered edition)](https://support.portswigger.net/customer/portal/articles/1965674-using-burp-to-test-for-cross-site-request-forgery-csrf-)
 * [Cross Frame Loader](http://yehg.net/lab/pr0js/pentest/cross_site_framing.php (via iframe))
@@ -188,3 +192,4 @@ It prevents from the [example described above](#other-http-methods).
 * [CSRF-POC-Generator](https://security.love/CSRF-PoC-Genorator/)
 * [Pinata-csrf-tool](http://code.google.com/p/pinata-csrf-tool/)
 * [WebScarab Spider](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project)
+
