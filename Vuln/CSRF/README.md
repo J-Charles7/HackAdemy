@@ -57,6 +57,26 @@ In our example, the **Website visitor** is the **client** and the **website** is
 In **multi-step CSRF** the action trigered by the hacker link needs more actions from the victim to be completed.So here, the hacker will forged multi links triggered by time or by others events in order for the CSRF to be completely done.
 ![CSRF multi-steps](items/image.png)
 
+## How to detect CSRF 
+### Graybox testing
+The graybox testing 
+
+### Blackbox testing
+The best way to perform blackbox testing for CSRF is to be able to test what kind of data the web server is sending when you try an action by using a proxy. 
+If it's always the same data which are always sent for the same action, this website is probably CSRF vulnerable. 
+If the proxy used is Burpsuite, it is possible to create a POC with it : see [here](https://portswigger.net/burp/help/suite_functions_csrfpoc)
+
+Then you can construct a test as follows:
+
+* Let **u** the URL being tested; for example, `u = http://www.example.com/action`
+* Build an html page containing the http request referencing URL u (specifying all relevant parameters; in the case of http GET this is straightforward, while to a POST request you need to resort to some Javascript);
+* Make sure that the valid user is logged on the application; induce him into following the link pointing to the URL to be tested;
+* Observe the result, i.e. check if the web server executed the request.
+
+
+
+
+
 # Exploitation samples
 **XSRF** Attacks can be launched by placing the malicious code/URL, automatic-action HTML image elements **on forums and email spam**, so that browsers visiting these pages would open them automatically, without much user action.
 ## GET scenario
@@ -76,23 +96,6 @@ Or as a **0x0** fake image:
 <img src="http://bank.com/transfer.do?acct=WEBVISITOR&amount=100000" width="0" height="0" border="0">
 ```
 If this image tag were included in the email, the **Website visitor** wouldn't see anything. However, the browser will still submit the request to **bank.com** (the server component) **without any visual indication** that the transfer has taken place. 
-
-## How to detect CSRF 
-### Graybox testing
-The graybox testing 
-
-### Blackbox testing
-The best way to perform blackbox testing for CSRF is to be able to test what kind of data the web server is sending when you try an action by using a proxy. 
-If it's always the same data which are always sent for the same action, this website is probably CSRF vulnerable. 
-If the proxy used is Burpsuite, it is possible to create a POC with it : see [here](https://portswigger.net/burp/help/suite_functions_csrfpoc)
-
-Then you can construct a test as follows:
-
-* Let **u** the URL being tested; for example, `u = http://www.example.com/action`
-* Build an html page containing the http request referencing URL u (specifying all relevant parameters; in the case of http GET this is straightforward, while to a POST request you need to resort to some Javascript);
-* Make sure that the valid user is logged on the application; induce him into following the link pointing to the URL to be tested;
-* Observe the result, i.e. check if the web server executed the request.
-
 
 
 ## POST scenario
