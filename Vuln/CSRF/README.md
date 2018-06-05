@@ -149,6 +149,14 @@ In this kind of situation, multi-step CSRF is used.
 ## Presence detection (post-incident)
 Detection of **CSRF** flaws is made via **penetration testing** or **code analysis**. 
 
+### Graybox testing
+The graybox testing 
+
+### Blackbox testing
+The best way to perform blackbox testing for CSRF is to be able to test what kind of data the web server is sending when you try an action by using a proxy. 
+If it's always the same data which are always sent for the same action, this website is probably CSRF vulnerable. 
+If the proxy used is Burpsuite, it is possible to create a POC with it : see [here](https://portswigger.net/burp/help/suite_functions_csrfpoc)
+
 
 # Countermeasures guidelines
 ## Server-side
