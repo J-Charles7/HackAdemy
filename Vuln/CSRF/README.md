@@ -225,6 +225,16 @@ It prevents from the [example described above](#other-http-methods).
 ### CORS - Cross Origin Resource Sharing
 [CORS](../XSS/items/sop.md) ia a mechanism that allows restricted resources on a web page to be requested from another domain from which the first resource was served.
 **CORS** defines a way in which a browser and server can interact to determine whether or not it is safe to allow the **cross-origin request**. It allows for more freedom and functionality than purely same-origin requests, but is more secure than simply allowing all cross-origin requests. 
+### SameSite cookie attribute
+**SameSite** cookie attribute prevents the browser from sending this cookie along with cross-site requests. The main goal is mitigate the risk of cross-origin information leakage, and provides some protection against cross-site request forgery attacks. 
+Currently, **only Chrome based browsers** supports this attribute.
+
+```http 
+Set-Cookie: JSESSIONID=xxxxx; SameSite=Strict
+Set-Cookie: JSESSIONID=xxxxx; SameSite=Lax
+```
+
+
 # Countermeasures implementation
 Specific tools for **server-side** [Synchronizer token](F#synchronizer-token-pattern)
 * For **Java**: [OWASP CSRF Guard](https://www.owasp.org/index.php/CSRF_Guard)
