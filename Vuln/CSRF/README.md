@@ -59,7 +59,9 @@ In **multi-step CSRF** the action trigered by the hacker link needs more actions
 
 ## How to detect CSRF 
 ### Graybox testing
-The graybox testing 
+In Graybox testing, it is important to look for the client input to the server. If there are no randomized data which leads these inputs, the website is potentially presenting CSRF issue. 
+Another thing to know that, this data should be renew frequently. 
+
 
 ### Blackbox testing
 The best way to perform blackbox testing for CSRF is to be able to test what kind of data the web server is sending when you try an action by using a proxy. 
