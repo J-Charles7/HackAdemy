@@ -77,6 +77,24 @@ Or as a **0x0** fake image:
 ```
 If this image tag were included in the email, the **Website visitor** wouldn't see anything. However, the browser will still submit the request to **bank.com** (the server component) **without any visual indication** that the transfer has taken place. 
 
+## How to detect CSRF 
+### Graybox testing
+The graybox testing 
+
+### Blackbox testing
+The best way to perform blackbox testing for CSRF is to be able to test what kind of data the web server is sending when you try an action by using a proxy. 
+If it's always the same data which are always sent for the same action, this website is probably CSRF vulnerable. 
+If the proxy used is Burpsuite, it is possible to create a POC with it : see [here](https://portswigger.net/burp/help/suite_functions_csrfpoc)
+
+Then you can construct a test as follows:
+
+* Let **u** the URL being tested; for example, `u = http://www.example.com/action`
+* Build an html page containing the http request referencing URL u (specifying all relevant parameters; in the case of http GET this is straightforward, while to a POST request you need to resort to some Javascript);
+* Make sure that the valid user is logged on the application; induce him into following the link pointing to the URL to be tested;
+* Observe the result, i.e. check if the web server executed the request.
+
+
+
 ## POST scenario
 The only difference between **GET** and **POST** attacks is how the attack is being executed by the victim. Let's assume the bank now uses **POST** and the vulnerable request looks like this: 
 
@@ -123,7 +141,7 @@ Such requests can be executed with JavaScript embedded into an exploit page:
 </script>
 <body onload="put()">
 ```
-## Multi-step example 
+## Multi-step scenario 
 Here let's assume that we have the victime is in a landing page(as before) and the action he has done need him to confirm. Then this confirmation or not will be send to the server.
 In this kind of situation, multi-step CSRF is used.
 
@@ -145,21 +163,6 @@ In this kind of situation, multi-step CSRF is used.
     }
 </script>
 ```
-## How to detect CSRF 
-### Graybox testing
-The graybox testing 
-
-### Blackbox testing
-The best way to perform blackbox testing for CSRF is to be able to test what kind of data the web server is sending when you try an action by using a proxy. 
-If it's always the same data which are always sent for the same action, this website is probably CSRF vulnerable. 
-If the proxy used is Burpsuite, it is possible to create a POC with it : see [here](https://portswigger.net/burp/help/suite_functions_csrfpoc)
-
-Then you can construct a test as follows:
-
-* Let **u** the URL being tested; for example, `u = http://www.example.com/action`
-* Build an html page containing the http request referencing URL u (specifying all relevant parameters; in the case of http GET this is straightforward, while to a POST request you need to resort to some Javascript);
-* Make sure that the valid user is logged on the application; induce him into following the link pointing to the URL to be tested;
-* Observe the result, i.e. check if the web server executed the request.
 
 
 ## Presence detection (post-incident)
