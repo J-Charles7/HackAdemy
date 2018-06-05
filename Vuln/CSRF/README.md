@@ -249,3 +249,14 @@ Specific tools for **server-side** [Synchronizer token](F#synchronizer-token-pat
 * [Pinata-csrf-tool](http://code.google.com/p/pinata-csrf-tool/)
 * [WebScarab Spider](http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project)
 
+## CSRF real attacks
+GMail 2007 mail redirection through filters
+* http://www.gnucitizen.org/blog/google-gmail-e-mail-hijack-technique/
+* http://www.davidairey.com/google-gmail-security-hijack/
+
+GMail 2007 contacts thiefs : (based on AJAX+JSONP)
+* http://jeremiahgrossman.blogspot.fr/2007/01/gmail-xsrf-json-call-back-hackery.html
+* http://jeremiahgrossman.blogspot.fr/2006/01/advanced-web-attack-techniques-using.html
+
+* ING Direct : money transfert,
+*  YouTube (2008) : control a session
