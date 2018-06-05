@@ -109,7 +109,7 @@ Modern web application APIs frequently use other HTTP methods, such as **PUT** o
 ```http
 PUT http://bank.com/transfer.do HTTP/1.1
 
-{ "acct":"BOB", "amount":100 }
+{ "acct":"PERPRETOR", "amount":100 }
 ```
 Such requests can be executed with JavaScript embedded into an exploit page: 
 ```javascript
