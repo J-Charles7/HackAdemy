@@ -37,6 +37,6 @@ If you want to contribute to our project, we welcome you :)! But please, read [t
 This project is under `GPLv3 License` which terms can be found [here](LICENSE).
 
 ## Authors
-Aubain TAPSOBA (tapsoba.aubain@gmail.com)
-Jean Charles OUEDRAOGO (oued.charles137@gmail.com)
+* Aubain TAPSOBA (tapsoba.aubain@gmail.com)
+* Jean Charles OUEDRAOGO (oued.charles137@gmail.com)
 Enjoy!
