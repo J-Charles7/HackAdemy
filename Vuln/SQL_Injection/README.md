@@ -31,7 +31,7 @@
 # Countermeasures guidelines
 ## Server side
 ## Client side
-## Policiy(ies)
+## Policy(ies)
 
 # Countermeasures implementation
 # Common exploitation tools
