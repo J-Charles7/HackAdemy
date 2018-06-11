@@ -30,6 +30,9 @@ Here is the general structure of each case:
 * [SSRF](Vuln/README.md) : *ToDo*
 * [XSS](Vuln/XSS/README.md) : *Done*
 
+## Contribution
+If you want to contribute to our project, you can check [this](CONTRIBUTION.md)
+
 ## License
 This project is under `GPLv3 License` which terms can be found [here](LICENSE).
 
