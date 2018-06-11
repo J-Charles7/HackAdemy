@@ -17,6 +17,8 @@
 * Countermeasures implementation
 * Common exploitation tools 
 
+# Lexic
+
 # Overview
 ## Acronyms - Definition
 ## Exploitability
