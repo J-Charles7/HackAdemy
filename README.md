@@ -31,10 +31,12 @@ Here is the general structure of each case:
 * [XSS](Vuln/XSS/README.md) : *Done*
 
 ## Contribution
-If you want to contribute to our project, you can check [this](CONTRIBUTION.md)
+If you want to contribute to our project, we welcome you :)! But please, read [this](CONTRIBUTION.md) first.
 
 ## License
 This project is under `GPLv3 License` which terms can be found [here](LICENSE).
 
-
+## Authors
+Aubain TAPSOBA (tapsoba.aubain@gmail.com)
+Jean Charles OUEDRAOGO (oued.charles137@gmail.com)
 Enjoy!
