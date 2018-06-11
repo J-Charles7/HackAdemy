@@ -16,3 +16,20 @@
    * Possible policy(ies)
 * Countermeasures implementation
 * Common exploitation tools 
+
+# Overview
+## Acronyms - Definition
+## Exploitability
+## Impact
+## Components
+## Types
+
+# Vulnerability explatation samples
+# Presence detection
+# Countermeasures guidelines
+## Server side
+## Client side
+## Policiy(ies)
+
+# Countermeasures implementation
+# Common exploitation tools
