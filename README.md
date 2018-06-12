@@ -13,6 +13,10 @@ Here is the general structure of each case:
    * Impact
    * Components (server, client, etc)
    * Types 
+* HOw to check
+   * Whitebox
+   * Graybox 
+   * Blackbox
 * Vulnerability exploitation samples
 * Presence detection
 * Countermeasures guidelines
