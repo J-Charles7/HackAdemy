@@ -37,5 +37,3 @@ But please, read [this](CONTRIBUTION.md) first.
 
 ## License
 This project is under `GPLv3 License` which terms can be found [here](LICENSE).
-
-Enjoy!
