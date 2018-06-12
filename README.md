@@ -29,6 +29,7 @@ Here is the general structure of each case:
 * [SQLInjection](Vuln/SQL_Injection/README.md) : *Doing*
 * [SSRF](Vuln/README.md) : *ToDo*
 * [XSS](Vuln/XSS/README.md) : *Done*
+* [XXE](Vuln/XXE/README.md) : *TODO*
 
 ## Contribution
 If you want to contribute to our project, we welcome you! :) 
