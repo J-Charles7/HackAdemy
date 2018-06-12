@@ -9,7 +9,7 @@
    * Components (server, client, etc)
    * Types 
 * Vulnerability exploitation samples
-* How to check 
+* Test For
    * Whitebox
    * Graybox 
    * Blackbox
