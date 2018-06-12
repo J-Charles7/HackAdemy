@@ -38,8 +38,4 @@ But please, read [this](CONTRIBUTION.md) first.
 ## License
 This project is under `GPLv3 License` which terms can be found [here](LICENSE).
 
-## Authors
-* Aubain TAPSOBA (tapsoba.aubain@gmail.com)
-* Jean Charles OUEDRAOGO (oued.charles137@gmail.com)
-
 Enjoy!
