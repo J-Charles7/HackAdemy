@@ -28,7 +28,7 @@ Here is the general structure of each case:
 * [Path Traversal](Vuln/README.md) : *ToDo*
 * [SQLInjection](Vuln/SQL_Injection/README.md) : *Doing*
 * [SSRF](Vuln/README.md) : *ToDo*
-* [XPATH](Vuln/XPATH/README.md) *ToDo*
+* [XPATH injection](Vuln/XPATH/README.md) *ToDo*
 * [XSS](Vuln/XSS/README.md) : *Done*
 * [XXE](Vuln/XXE/README.md) : *ToDo*
 
