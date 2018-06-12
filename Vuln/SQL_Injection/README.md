@@ -9,6 +9,10 @@
    * Components (server, client, etc)
    * Types 
 * Vulnerability exploitation samples
+* How to check 
+   * Whitebox
+   * Graybox 
+   * Blackbox
 * Presence detection
 * Countermeasures guidelines
    * Server side
