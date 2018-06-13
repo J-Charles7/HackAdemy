@@ -55,6 +55,11 @@ and **possibily** returns the result to the **Web and application server** (**Fl
 ## Types
 
 # Vulnerability explatation samples
+# Test For
+## Whitebox
+## Graybox 
+## Blackbox
+
 # Presence detection
 # Countermeasures guidelines
 ## Server side
