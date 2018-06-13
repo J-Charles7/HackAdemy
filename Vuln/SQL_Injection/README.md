@@ -65,10 +65,10 @@ This possible thanks to some softwares that do the job and report (and specify) 
 * SQLiX
 
 [SQLiX](https://www.owasp.org/index.php/Category:OWASP_SQLiX_Project) is a SQL Injection scanner coded in Perl. It is able to:
-   * **crawl**, 
-   * **detect** SQL injection vectors, 
-   * **identify the back-end database**, and 
-   * **grab function** call/UDF results (even execute system commands for MS-SQL). 
+      * **crawl**, 
+      * **detect** SQL injection vectors, 
+      * **identify the back-end database**, and 
+      * **grab function** call/UDF results (even execute system commands for MS-SQL). 
 
 The concepts in use are different than the one used in other SQL injection scanners. 
 
