@@ -40,6 +40,18 @@ A successful SQL injection exploit can:
 ## Components
 The components identification will be based on the image below.
 ![SQLi components](items/done.png)
+
+### Client tier
+The attacker uses a **web browser** to forge malicious SQL queries on a website through the inputs offered by this website.
+This query is sent to the **wed and application server** for processing. (**Flaw 1 on the image**)
+
+### Web and application server tier
+The web and application server receives the prior query. After possible checks and a least of processing, it forwards it to the DBMS entity. (**Flaw 2 on the image**)
+Note: The query cannot be run by the web and application server. The DBMS is the entity capable for this. 
+
+### DBMS tier
+A DBMS is a Database management system. It has an SQL processing engine. Once the DBMS receives the query it executes the query 
+and **possibily** returns the result to the **Web and application server** (**Flaw 3 on the image**). The result **may be** fetched,  formated and sent to the client (web browser). (**Flaw 4 on the image**)
 ## Types
 
 # Vulnerability explatation samples
