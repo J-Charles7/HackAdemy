@@ -25,7 +25,7 @@
 
 # Overview
 ## Acronyms - Definition
-SQL injection stangs for Structured Query Laguage injection. It is usually abbreviated as **SQLi**.
+SQL injection stands for Structured Query Laguage injection. It is usually abbreviated as **SQLi**.
 
 It is an attack that consists of insertion or "injection" of a SQL query via the input data from the client to the application.
 
