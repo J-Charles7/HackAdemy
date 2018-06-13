@@ -63,6 +63,7 @@ In this section, there two main types of tests that can be performed : manual an
 ### Logical
 This possible thanks to some softwares that do the job and report (and specify) if there are some inputs that SQLi vulnerable.
 * SQLiX
+
 [SQLiX](https://www.owasp.org/index.php/Category:OWASP_SQLiX_Project) is a SQL Injection scanner coded in Perl. It is able to **crawl**, **detect** SQL injection vectors, **identify the back-end database**, and **grab function** call/UDF results (even execute system commands for MS-SQL). The concepts in use are different than the one used in other SQL injection scanners. 
 
 SQLiX is able to find **normal and blind SQL injection** vectors and doesn't need to reverse engineer the original SQL request (using only function calls).  
