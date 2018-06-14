@@ -1,4 +1,4 @@
-![HackAcademy Logo](Vuln/XSS/items/coollogo_com-7511137.png)
+![HackAcademy Logo](Vuln/XSS/items/coollogo_com-309731270.png)
 
 This project aims at setting a `kind of database` dealing with common `web appplication weaknesses and vulnerabilities`.
 
