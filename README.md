@@ -1,6 +1,6 @@
 ![HackAcademy Logo](Vuln/XSS/items/coollogo_com-309731270.png)
 
-This project aims at setting a `kind of database` dealing with common `web appplication weaknesses and vulnerabilities`.
+This project aims at setting a `base of information` dealing with common `web appplication weaknesses and vulnerabilities`.
 
 ## Organization
 In fact, there is a directory dedicated to each vulnerability. Within this, relevant and consistent information are fed. This information is supposed to be both `theorical and technical`; but mostly technical.
