@@ -9,7 +9,7 @@
    * Components (server, client, etc)
    * Types 
 * Vulnerability exploitation samples
-* How to test for SQLi
+* How to test for/check SQLi
    * Whitebox
    * Graybox 
    * Blackbox
@@ -55,7 +55,7 @@ and **possibily** returns the result to the **Web and application server** (**Fl
 ## Types
 
 # Vulnerability explatation samples
-# How to test for SQLi
+# How to test/check for SQLi
 ## Whitebox
 ## Graybox 
 ## Blackbox
