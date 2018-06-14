@@ -109,11 +109,11 @@ In SQLi, the Client is the **attacker and not the victim**.
 
 [SQLmap](https://github.com/sqlmapproject/sqlmap) is probably the most complete and efficient tool for SQLi vulnerabilities exploitation and even more.
 
-The open source software is run at the command line and is available to download for different operating systems: **Linux** distributions, **Windows** and **Mac OS** operating systems.
+The open source software is run at the command line and is available to download for different operating systems: **Linux** distributions, Windows and Mac OS operating systems.
 
-Sqlmap has full support for multiple **DBMSs** including **MySQL**, **Oracle**, **PostgreSQL**, **Microsoft SQL Server**, **Microsoft Access**, **IBM DB2**, **SQLite**, **Firebird** and **SAP MaxDB**.
+Sqlmap has full support for multiple DBMSs including MySQL, Oracle, PostgreSQL, Microsoft SQL Server, Microsoft Access, IBM DB2, SQLite, Firebird and SAP MaxDB.
 
-And full support for all injection techniques: **Boolean**, **Error**, **Stack**, **Time**, **Union**.
+And full support for all injection techniques: Boolean, Error, Stack, Time, Union.
 
 * SQLSus 
 
