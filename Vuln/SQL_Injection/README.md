@@ -102,6 +102,7 @@ In SQLi, the Client is the **attacker and not the victim**.
 [Safe3 SQL Injector](http://sourceforge.net/projects/safe3si/) is another powerful but easy to use SQL injection tool. Like other SQL injection tools, it also makes the SQL injection process automatic and helps attackers in gaining the access to a remote SQL server by exploiting the SQL injection vulnerability. It has a powerful AI system which easily recognizes the database server, injection type and best way to exploit the vulnerability.
 
 * Mole
+
 [Mole](http://sourceforge.net/projects/themole/files/) or (The Mole) is an automatic SQL injection tool available for free. This is an open source project hosted on Sourceforge. You only need to find the vulnerable URL and then pass it in the tool. This tool can detect the vulnerability from the given URL by using Union based or Boolean based query techniques. This tool offers a command line interface, but the interface is easy to use. It also offers auto-completion on both commands and command arguments. So, you can easily use this tool.
 
 * SQLmap
@@ -115,6 +116,7 @@ Sqlmap has full support for multiple **DBMSs** including **MySQL**, **Oracle**, 
 And full support for all injection techniques: **Boolean**, **Error**, **Stack**, **Time**, **Union**.
 
 * SQLSus 
+
 [SQLSus](http://sqlsus.sourceforge.net/) is another open source SQL injection tool and is basically a MySQL injection and takeover tool. This tool is written in Perl and you can extend the functions by adding your own codes. This tool offers a command interface which lets you inject your own SQL queries and perform SQL injection attacks.
 
 
