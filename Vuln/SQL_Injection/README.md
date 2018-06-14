@@ -79,7 +79,7 @@ The concepts in use are different than the one used in other SQL injection scann
 ## Client side
 There is nothing to do by the client as it is not able to run SQL queries and is not a recepient of those queries.
 
-In SQLi, the Client is the **attacker and not the vicitim**.
+In SQLi, the Client is the **attacker and not the victim**.
 ## Policy(ies)
 
 # Countermeasures implementation
