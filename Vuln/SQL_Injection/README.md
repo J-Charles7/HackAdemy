@@ -73,7 +73,8 @@ The concepts in use are different than the one used in other SQL injection scann
 
 [SQLiX](https://www.owasp.org/index.php/Category:OWASP_SQLiX_Project) is able to find **normal and blind SQL injection** vectors and doesn't need to reverse engineer the original SQL request (using only function calls).  
 
-* Acunetix 
+* Acunetix
+
 [It](https://www.acunetix.com/web-vulnerability-scanner/?utm_term=sql%20injection&utm_campaign=38301565&utm_content=&utm_source=Adwords&utm_medium=cpc&gclid=EAIaIQobChMIn73z3-XS2wIVgQvTCh1HMwEHEAAYASAAEgJI6PD_BwE) is commercial tool performing scans on a site pages for SQLi vulnerabilities detection. It is a multi-threaded, lightning fast crawler and scanner that can crawl hundreds of thousands of pages without interruptions.
 
 # Presence detection
