@@ -13,7 +13,7 @@ Here is the general structure of each case:
    * Impact
    * Components (server, client, etc)
    * Types 
-* How to check
+* How to test/check for
    * Whitebox
    * Graybox 
    * Blackbox
