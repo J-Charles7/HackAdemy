@@ -45,7 +45,7 @@ The components identification will be based on the image below.
 
 ### Client tier
 The attacker uses a **web browser** to forge malicious SQL queries on a website through the inputs offered by this website.
-This query is sent to the **wed and application server** for processing. (**Flaw 1 on the image**)
+This query is sent to the **web and application server** for processing. (**Flaw 1 on the image**)
 
 ### Web and application server tier
 The web and application server receives the prior query. After possible checks and a least of processing, it forwards it to the DBMS entity. (**Flaw 2 on the image**)
