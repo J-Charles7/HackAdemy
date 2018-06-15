@@ -13,12 +13,14 @@
    * Whitebox
    * Graybox 
    * Blackbox
+* Fingerprint a database manager 
 * Presence detection
 * Countermeasures guidelines
    * Server side
    * Client side
    * Possible policy(ies)
 * Countermeasures implementation
+* An attack scenairio
 * Common exploitation tools 
 
 # Lexic
