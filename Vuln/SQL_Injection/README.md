@@ -38,6 +38,11 @@ A successful SQL injection exploit can:
 * recover the content of a given file present on the DBMS file system and in some cases issue commands to the operating system. 
 
 ## Exploitability
+According to OWASP, this kind of attack is an injection attack. Injection attack exploitability is accessible for everyone without special skills. 
+But it is necessary to notice that this depends on what kind of SQLi is performing. 
+Simple in-Band sqli will be accessible for everyone but blind can be very difficult to exploit and to detect even for skills professional. 
+
+
 ## Impact
 An attacker can use SQLi to **bypass authentication or even even impersonate specific users**. 
 One of SQL's primary functions is to select primary functions is to select data based on a query and output the reult of that query. An SQL Injection vulnerability could allow `the complete disclosure of data residing on a database server`.
@@ -59,9 +64,35 @@ Note: The query cannot be run by the web and application server. The DBMS is the
 ### DBMS tier
 A DBMS is a Database management system. It has an SQL processing engine. Once the DBMS receives the query it executes the query 
 and **possibily** returns the result to the **Web and application server** (**Flaw 3 on the image**). The result **may be** fetched,  formated and sent to the client (web browser). (**Flaw 4 on the image**)
+
 ## Types
+SQLi could be classified into two majors categories: 
+* In-band sqli (classic sqli)
+It is the most common and easy way to exploit sqli. This occurs when an attacker is able to use the same communication channel to both launch the attack and gather results. 
+
+** Error based 
+It is an in-band sqli that relies on error messages thrown by the db server to obtain information about the structure of the database. 
+
+** Union based sqli 
+It is sqli technic that laverages the **Union** sql operator to combine the results of two or more statements into a single result which is then returned as part of the response. 
+
+* Inferential SQLI (Blind SQLi)
+It may take longer time for an attacker to exploit. In this, no data is transfered via the web application and the attacker would not be able to see the result of an attack in band. 
+
+** Boolean based sqli 
+  This is a technic relies on sending a sql query to the DB which forces the application to return a differnet result depending on wether the query returns a true or false result. Depending on the result, the content within the HTTP response will change or remain the same. This allows an attacker to infer if the payload used returned true or false, even through no data from the database is returned. 	This attack is typically slow (especially on large databases) since an attacker would need to enumerate a database, character by character. 
+  
+** Time based SQLI 
+This type of blind SQL injection relies on the database pausing for a specified amount of time, then returning the results, indicating successful SQL query executing. Using this method, an attacker enumerates each letter of the desired piece of data using the following logic:
+If the first letter of the first database's name is an 'A', wait for 10 seconds.
+If the first letter of the first database's name is an 'B', wait for 10 seconds. etc. 
+  
 
 # Vulnerability explatation samples
+
+## From sqli to RCE 
+SQL provide this
+
 # How to test/check for SQLi
 ## Whitebox
 ## Graybox 
