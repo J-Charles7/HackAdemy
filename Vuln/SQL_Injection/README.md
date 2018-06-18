@@ -9,7 +9,7 @@
    * [Components](#components)
    * [Types](#types) 
 * [Vulnerability exploitation samples](#vulnerability-exploitation-samples)
-* How to test for/check SQLi
+* [How to test for/check SQLi](#how-to-testcheck-for-sqli)
    * [Whitebox](#whitebox)
    * [Graybox](#graybox) 
    * [Blackbox](#blackbox)
@@ -18,7 +18,7 @@
 * [Countermeasures guidelines](#countermeasures-guidelines)
    * [Server side](#server-side)
    * [Client side](#client-side)
-   * [Policies](#policies]
+   * [Policies](#policies)
 * [Countermeasures implementation](#countermeasures-implementation)
 * [Attack scenairio dissect](#attack-scenario-dissect)
 * [Common exploitation tools](#common-exploitation-tools) 
