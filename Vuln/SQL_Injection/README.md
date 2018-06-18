@@ -39,6 +39,11 @@ A successful SQL injection exploit can:
 
 ## Exploitability
 ## Impact
+An attacker can use SQLi to **bypass authentication or even even impersonate specific users**. 
+One of SQL's primary functions is to select primary functions is to select data based on a query and output the reult of that query. An SQL Injection vulnerability could allow the complete disclosure of data residing on a database server.
+More seriously, SLQi can lead to Remote Code Execution or affect application availability by deleting its data. 
+
+
 ## Components
 The components identification will be based on the image below.
 ![SQLi components](items/done.png)
