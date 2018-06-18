@@ -1,27 +1,27 @@
 # SQL Injection
 
 ## Plan
-* Lexic
-* Overview 
-   * Acronyms - Definition
-   * Exploitability
-   * Impact
-   * Components (server, client, etc)
-   * Types 
-* Vulnerability exploitation samples
+* [Lexic](#lexic)
+* [Overview](#overview) 
+   * [Acronyms - Definition](#acronyms---definition)
+   * [Exploitability](#exploitability)
+   * [Impact](#impact)
+   * [Components](#components)
+   * [Types](#types) 
+* [Vulnerability exploitation samples](#vulnerability-exploitation-samples)
 * How to test for/check SQLi
-   * Whitebox
-   * Graybox 
-   * Blackbox
-* Fingerprint a database manager 
-* Presence detection
-* Countermeasures guidelines
-   * Server side
-   * Client side
-   * Possible policy(ies)
-* Countermeasures implementation
-* An attack scenairio
-* Common exploitation tools 
+   * [Whitebox](#whitebox)
+   * [Graybox](#graybox) 
+   * [Blackbox](#blackbox)
+* [Fingerprint a database manager](#fingerprint-a-database-manager)
+* [Presence detection](#presence-detection)
+* [Countermeasures guidelines](#countermeasures-guidelines)
+   * [Server side](#server-side)
+   * [Client side](#client-side)
+   * [Policies](#policies]
+* [Countermeasures implementation](#countermeasures-implementation)
+* [Attack scenairio dissect](#attack-scenario-dissect)
+* [Common exploitation tools](#common-exploitation-tools) 
 
 # Lexic
 
