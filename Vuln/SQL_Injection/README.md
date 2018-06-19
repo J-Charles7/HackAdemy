@@ -80,7 +80,7 @@ It is sqli technic that laverages the **Union** sql operator to combine the resu
 It may take longer time for an attacker to exploit. In this, no data is transfered via the web application and the attacker would not be able to see the result of an attack in band. 
 
 ** Boolean based sqli 
-  This is a technic relies on sending a sql query to the DB which forces the application to return a differnet result depending on wether the query returns a true or false result. Depending on the result, the content within the HTTP response will change or remain the same. This allows an attacker to infer if the payload used returned true or false, even through no data from the database is returned. 	This attack is typically slow (especially on large databases) since an attacker would need to enumerate a database, character by character. 
+  This is a technic relies on sending a sql query to the DB which forces the application to return a different result depending on wether the query returns a true or false result. Depending on the result, the content within the HTTP response will change or remain the same. This allows an attacker to infer if the payload used returned true or false, even through no data from the database is returned. 	This attack is typically slow (especially on large databases) since an attacker would need to enumerate a database, character by character. 
   
 ** Time based SQLI 
 This type of blind SQL injection relies on the database pausing for a specified amount of time, then returning the results, indicating successful SQL query executing. Using this method, an attacker enumerates each letter of the desired piece of data using the following logic:
@@ -88,7 +88,7 @@ If the first letter of the first database's name is an 'A', wait for 10 seconds.
 If the first letter of the first database's name is an 'B', wait for 10 seconds. etc. 
   
 
-# Vulnerability explatation samples
+# Vulnerability exploitation samples
 
 ## From sqli to RCE 
 MySQL provides these functions : 
