@@ -198,7 +198,7 @@ The following comparison should be true:
 
 `http://www.example.com/news.php?id=1 AND 'aa'='a'||'a'`
 
-## Fingerprinting through SQL Dialiect Injection
+## Fingerprinting through SQL Dialect Injection
 
 Each DBMS extends Standart SQL with a set of native statements. Such a set define a SQL Dialect available to develipers to preoperly query a backend DBMS engine. Beside of lack of portability, this flaw gives a way to accurately fingerprint a DBMS through a SQLi, or even better a SQL Dialect Injection. SQL Dialect Injection is an attack vector where only statements, operators and peculiarities of a SQL Dialect are used in a SQLi.
 As an example what does `SELECT 1/0` returns  on different DBMS?
