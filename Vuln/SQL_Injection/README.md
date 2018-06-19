@@ -91,7 +91,10 @@ If the first letter of the first database's name is an 'B', wait for 10 seconds.
 # Vulnerability explatation samples
 
 ## From sqli to RCE 
-SQL provide this
+SQL provides these functions : 
+**load_file** to read and 
+**INTO FILE** to write a result into a file. 
+
 
 # How to test/check for SQLi
 ## Whitebox
