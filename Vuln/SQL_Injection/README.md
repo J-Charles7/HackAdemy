@@ -374,5 +374,10 @@ And full support for all injection techniques: Boolean, Error, Stack, Time, Unio
 
 [SQLSus](http://sqlsus.sourceforge.net/) is another open source SQL injection tool and is basically a MySQL injection and takeover tool. This tool is written in Perl and you can extend the functions by adding your own codes. This tool offers a command interface which lets you inject your own SQL queries and perform SQL injection attacks.
 
-
+# SQL tricks and tips
+* MySQL Union operator 
+* MySQL comments
+* MySQL If statement 
+* MySQL Sleep 
+* MySQL Case field 
 # Related attacks 
