@@ -13,7 +13,7 @@
    * [Whitebox](#whitebox)
    * [Graybox](#graybox) 
    * [Blackbox](#blackbox)
-* [Fingerprint a database manager](#fingerprint-a-database-manager)
+* [DBMS fingerprinting](#dbms-fingerprinting)
 * [Presence detection](#presence-detection)
 * [Countermeasures guidelines](#countermeasures-guidelines)
    * [Server side](#server-side)
@@ -114,7 +114,90 @@ The concepts in use are different than the one used in other SQL injection scann
 * Acunetix
 
 [It](https://www.acunetix.com/web-vulnerability-scanner/?utm_term=sql%20injection&utm_campaign=38301565&utm_content=&utm_source=Adwords&utm_medium=cpc&gclid=EAIaIQobChMIn73z3-XS2wIVgQvTCh1HMwEHEAAYASAAEgJI6PD_BwE) is commercial tool performing scans on a site pages for SQLi vulnerabilities detection. It is a multi-threaded, lightning fast crawler and scanner that can crawl hundreds of thousands of pages without interruptions.
+# DBMS fingerprinting
+In a SQLi attack, it is very important to know the nature of the DBMS hidden on the oder side of the server. Therefore, attackers usually use special techniques. The most common are four.
 
+## Banner Grabbing
+
+In this technique, we an retrieve the Backend DBMS banner. In some cases, it may have been replaced by the system administrator.
+This technique lays on some SQL statements:
+* MS SQL : **SELECT @@version**
+* MySQL / MariaDB : **SELECT version()**
+* Oracle : **SELECT version FROM v$instance**
+* Postgres : **SELECT version()**
+
+## Fingerprinting with string concatenation
+In the case, the banner has been replaced by the administrator for example. Another method consists in using the concatenation handling operators to determine the DBMS.
+* MS SQL: **'a' + 'a'**
+* MySQL: **CONCAT('a','a')**
+* Oracle: **'a' || 'a' or CONCAT('a','a')**
+* Postgres: **'a' || 'a'**
+
+As we can see both `Oracle` and `Postgres` use the **||** operator to perform such a concatenation, so we need another difference to distinguish them.
+
+`PL/SQL` define the `CONCAT` operator as well to perform string concatenation and as you can guess this one is not defined on `Postgres`. 
+
+**Example:**
+
+Let say you're testing the following URL: `http://www.example.com/news.php?id=1`
+
+We checked that the above URL is vulnerable to a Blind SQL Injection. It means that `http://www.example.com/news.php` return back the same contents with both
+
+`id=1 (http://www.example.com/news.php?id=1)`
+
+and
+
+`id=1 AND 1=1 (http://www.example.com/news.php?id=1 AND 1=1)`
+
+We know that different engine have different operators to perform string concatenation as well so all we have to do is to compare the orginal page (`id=1`) with:
+
+* MSSQL: **id=1 AND 'aa'='a'+'a'**
+The following comparison should be true:
+
+`http://www.example.com/news.php?id=1''`
+`http://www.example.com/news.php?id=1 AND 'aa'='a'+'a'''`
+
+* MySQL/Oracle: **id=1 AND 'aa'=CONCAT('a','a')**
+
+The following comparison should be true:
+
+`http://www.example.com/news.php?id=1`
+`http://www.example.com/news.php?id=1 AND 'aa'=CONCAT('a','a')`
+
+* Oracle/Postgres: **id=1 AND 'a'='a'||'a'** 
+
+The following comparison should be true:
+
+`http://www.example.com/news.php?id=1`
+`http://www.example.com/news.php?id=1 AND 'aa'=CONCAT('a','a')`
+`http://www.example.com/news.php?id=1 AND 'aa'='a'||'a'`
+
+* Postgres:
+
+The following comparison should be true:
+
+`http://www.example.com/news.php?id=1`
+`http://www.example.com/news.php?id=1 AND 'aa'='a'||'a'`
+
+## Fingerprinting through SQL Dialiect Injection
+
+
+## Error Codes Analysis
+
+By performing fault injection, or fuzzing, we can gather important information through error code analysis when web application framework reports errors. Let'see some examples: 
+```
+http://www.example.com/store/findproduct.php?name='
+
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version 
+for the right syntax to use near '''''   at line 1
+```
+
+```
+http://www.example.com/store/products.php?id='
+
+Warning: pg_exec() [function.pg-exec]: Query failed: ERROR: unterminated quoted string at or near "'" LINE 1: 
+SELECT * FROM products WHERE ID=' ^ in /var/www/store/products.php on line 9
+```
 # Presence detection
 # Countermeasures guidelines
 ## Server side
