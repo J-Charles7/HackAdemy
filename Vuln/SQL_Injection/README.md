@@ -66,7 +66,7 @@ A DBMS is a Database management system. It has an SQL processing engine. Once th
 and **possibily** returns the result to the **Web and application server** (**Flaw 3 on the image**). The result **may be** fetched,  formated and sent to the client (web browser). (**Flaw 4 on the image**)
 
 ## Types
-SQLi could be classified into two majors categories: 
+SQLi could be classified into three majors categories: 
 * In-band sqli (classic sqli)
 It is the most common and easy way to exploit sqli. This occurs when an attacker is able to use the same communication channel to both launch the attack and gather results. 
 
@@ -77,7 +77,7 @@ It is an in-band sqli that relies on error messages thrown by the db server to o
 It is sqli technic that laverages the **Union** sql operator to combine the results of two or more statements into a single result which is then returned as part of the response. 
 
 * Inferential SQLI (Blind SQLi)
-It may take longer time for an attacker to exploit. In this, no data is transfered via the web application and the attacker would not be able to see the result of an attack in band. 
+In blind SQLi, no data is transfered via the web application. An attacker would not be able to see the result of his attack in band. Instead, he is is able to reconstruct the database strucure by sending payloads, observing the web application's response and the resulting behavior of the database server. 
 
 ** Boolean based sqli 
   This is a technic relies on sending a sql query to the DB which forces the application to return a different result depending on wether the query returns a true or false result. Depending on the result, the content within the HTTP response will change or remain the same. This allows an attacker to infer if the payload used returned true or false, even through no data from the database is returned. 	This attack is typically slow (especially on large databases) since an attacker would need to enumerate a database, character by character. 
@@ -87,6 +87,11 @@ This type of blind SQL injection relies on the database pausing for a specified 
 If the first letter of the first database's name is an 'A', wait for 10 seconds.
 If the first letter of the first database's name is an 'B', wait for 10 seconds. etc. 
   
+* Out-of-band sqli 
+It depends on features being enabled on the databse server being used by the web application. Out-of-band SQLi occurs when an attacker is unable to use the same channel to launch the attack and gather results.
+
+Out-of-band SQLi techniques would rely on the database server’s ability to make DNS or HTTP requests to deliver data to an attacker. Such is the case with Microsoft SQL Server’s xp_dirtree command, which can be used to make DNS requests to a server that an attacker controls, as well as Oracle Database’s UTL_HTTP package, which can be used to send HTTP requests from SQL and PL/SQL to a server that an attacker controls.
+
 
 # Vulnerability exploitation samples
 
