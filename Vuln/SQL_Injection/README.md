@@ -93,6 +93,22 @@ It depends on features being enabled on the databse server being used by the web
 Out-of-band SQLi techniques would rely on the database server’s ability to make DNS or HTTP requests to deliver data to an attacker. Such is the case with Microsoft SQL Server’s xp_dirtree command, which can be used to make DNS requests to a server that an attacker controls, as well as Oracle Database’s UTL_HTTP package, which can be used to send HTTP requests from SQL and PL/SQL to a server that an attacker controls.
 
 # Vulnerability exploitation samples
+## Union-based SQLI 
+UNION-based attacks allow an attacker to easily extract information from the database. Because the UNION operator can only be used if both queries have the exact same structure, the attacker must craft a SELECT statement similar to the original query. To do this, a valid table name must be known but it is also necessary to determine the number of columns in the first query and their data type.
+### Number of colums 
+There is basically 2 ways to find how many columns are selected by the original query. The first one is to inject an ORDER BY clause indicating a column number. Given the column number specified is greater than the number of columns in the SELECT statement, an error will be returned. Otherwise, the results will be sorted by the column mentioned.
+
+The alternative technique to determine the number of columns is to directly inject a new statement with UNION. The number of columns in the injected select is increased until the database engine does not return an error related to the number of columns. Even if this approach is perfectly valid, the first one is more popular.
+
+### Data Types
+The last step is to determine the data type of each column of the original query. Some DBMS like MySQL and SQL Server are not strict on data types and will allow implicit numeric conversion.
+
+### Extracting Information
+Example 
+```sql 
+union select 1, concat(database(), version(), user()) 3 -- - 
+```
+
 
 ## From sqli to RCE 
 MySQL provides these functions : 
