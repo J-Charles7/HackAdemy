@@ -28,13 +28,13 @@ Here is the general structure of each case:
 * **Common exploitation tools** 
 
 ## Progress
-* [CSRF](Vuln/CSRF/README.md) : *Done* 
+* [CSRF](Vuln/CSRF/README.md) : ***Done*** 
 * [HTMLInjection](Vuln/README.md) : *ToDo*
 * [Path Traversal](Vuln/README.md) : *ToDo*
 * [SQLInjection](Vuln/SQL_Injection/README.md) : *Doing*
 * [SSRF](Vuln/README.md) : *ToDo*
 * [XPATH injection](Vuln/XPATH/README.md) *ToDo*
-* [XSS](Vuln/XSS/README.md) : *Done*
+* [XSS](Vuln/XSS/README.md) : ***Done***
 * [XXE](Vuln/XXE/README.md) : *ToDo*
 
 ## Contribution
