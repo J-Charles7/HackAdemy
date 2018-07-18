@@ -28,14 +28,14 @@ Here is the general structure of each case:
 * **Common exploitation tools** 
 
 ## Progress
-* [x][CSRF](Vulnerabilities/CSRF/README.md) : ***Done*** 
-* [ ][HTMLInjection](Vulnerabilities/README.md) : *ToDo*
-* [ ][Path Traversal](Vulnerabilities/README.md) : *ToDo*
-* [ ][SQLInjection](Vulnerabilities/SQL_Injection/README.md) : *Doing*
-* [ ][SSRF](Vulnerabilities/README.md) : *ToDo*
-* [ ][XPATH injection](Vulnerabilities/XPATH/README.md) *ToDo*
-* [X][XSS](Vulnerabilities/XSS/README.md) : ***Done***
-* [ ][XXE](Vulnerabilities/XXE/README.md) : *ToDo*
+* [x] [CSRF](Vulnerabilities/CSRF/README.md) : ***Done*** 
+* [ ] [HTMLInjection](Vulnerabilities/README.md) : *ToDo*
+* [ ] [Path Traversal](Vulnerabilities/README.md) : *ToDo*
+* [ ] [SQLInjection](Vulnerabilities/SQL_Injection/README.md) : *Doing*
+* [ ] [SSRF](Vulnerabilities/README.md) : *ToDo*
+* [ ] [XPATH injection](Vulnerabilities/XPATH/README.md) *ToDo*
+* [x] [XSS](Vulnerabilities/XSS/README.md) : ***Done***
+* [ ] [XXE](Vulnerabilities/XXE/README.md) : *ToDo*
 
 ## Contribution
 If you want to contribute to our project, we welcome you! 
