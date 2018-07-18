@@ -38,8 +38,8 @@ Here is the general structure of each case:
 * [ ] [XXE](Vulnerabilities/XXE/README.md) : *ToDo*
 
 ## Contribution
-If you want to contribute to our project, we welcome you! 
-But please, read [this](CONTRIBUTION.md) first.
+If you want to contribute to our project, we will happily welcome you! 
+But please, take some time to read [this](CONTRIBUTION.md) first.
 
 ## License
 This project is under `GPLv3 License` which terms can be found [here](LICENSE).
