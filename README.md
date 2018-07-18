@@ -27,7 +27,7 @@ Here is the general structure of each case:
 * **Countermeasures implementation**
 * **Common exploitation tools** 
 
-## Progress
+## Progression
 * [x] [CSRF](Vulnerabilities/CSRF/README.md) : ***Done*** 
 * [ ] [HTMLInjection](Vulnerabilities/README.md) : *ToDo*
 * [ ] [Path Traversal](Vulnerabilities/README.md) : *ToDo*
