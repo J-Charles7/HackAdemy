@@ -1,13 +1,13 @@
 # SQL Injection
 
 ## Plan
-### [1. Lexic](#lexic)
-### [2. Overview](#overview)
-   ### [2.1. Acronyms - Definition](#acronyms---definition)
-   ### [2.2. Exploitability](#exploitability)
-   ### [2.3. Impact](#impact)
-   ### [2.4. Components](#components)
-   ### [2.5. Types](#types) 
+#### [1. Lexic](#lexic)
+#### [2. Overview](#overview)
+#### [2.1. Acronyms - Definition](#acronyms---definition)
+#### [2.2. Exploitability](#exploitability)
+#### [2.3. Impact](#impact)
+#### [2.4. Components](#components)
+#### [2.5. Types](#types) 
 
 ### [3. Vulnerability exploitation samples](#vulnerability-exploitation-samples)
 ### [4. How to test for/check SQLi](#how-to-testcheck-for-sqli)
