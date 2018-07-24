@@ -370,6 +370,9 @@ Above a result of querying on **information_schema.tables** which shows all the 
 
 
 # Presence detection
+In order to determine whether there is an sQLi in a web app, the first thing to do is to look for database connection signs (forms, URL arguments, etc).
+If this condition is satisfied, then you can refer to the [How to test for/check SQLi](#how-to-testcheck-for-sqli) section for the following.
+
 # Countermeasures guidelines
 ## Server side
 ## Client side
