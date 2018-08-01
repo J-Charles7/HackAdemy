@@ -1,5 +1,5 @@
 # CORS - Cross Oigin Ressources Sharing 
-**CORS** is a mechanism that allows restricted ressources on a web page to be requested from another domain outside the domain from which fisrt the webste was served. CORS defines a way in which a browser and server can interact to fetermine wheter or not it is safe to allow the cross-origin request. The current actively-maintained specification that defines CORS is the Fetch Living Standard.
+**CORS** is a mechanism that allows restricted ressources on a web page to be requested from another domain outside the domain from which fisrt the webste was served. CORS defines a way in which a browser and server can interact to fetermine wheter or not it is safe to allow the cross-origin request. The current actively-maintained specification that defines CORS is the **Fetch Living Standard**.
 
 ## How it works
 
